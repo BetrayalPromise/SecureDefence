@@ -1,16 +1,23 @@
 PODS:
-  - SecureDefense (0.1.0)
+  - MessageTrash (0.0.1)
+  - SecureDefense (0.0.1):
+    - MessageTrash (~> 0.0.1)
 
 DEPENDENCIES:
   - SecureDefense (from `../`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MessageTrash
+
 EXTERNAL SOURCES:
   SecureDefense:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  SecureDefense: c558a349738042a6e3286b9a98333dfe2b7be9a0
+  MessageTrash: 7925feafd22318f4049253b8ed4a457517af1875
+  SecureDefense: ee3ff898a662ac9c55bfa7c212f06c92b61e866d
 
 PODFILE CHECKSUM: 9652ad3a7eee691d0cc20bb31d346a37372a49e7
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

@@ -208,7 +208,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				231C2BF46609768074B5E997 /* [CP] Embed Pods Frameworks */,
-				1EB901B6FDDE00ED6C584DE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,8 +226,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				508268ACE71601C8B6D4ADDC /* [CP] Embed Pods Frameworks */,
-				3EE7423206741E58E32A2989 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,21 +294,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1EB901B6FDDE00ED6C584DE3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecureDefense_Example/Pods-SecureDefense_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		231C2BF46609768074B5E997 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,45 +301,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SecureDefense_Example/Pods-SecureDefense_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MessageTrash/MessageTrash.framework",
 				"${BUILT_PRODUCTS_DIR}/SecureDefense/SecureDefense.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageTrash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SecureDefense.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecureDefense_Example/Pods-SecureDefense_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3EE7423206741E58E32A2989 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecureDefense_Tests/Pods-SecureDefense_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		508268ACE71601C8B6D4ADDC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecureDefense_Tests/Pods-SecureDefense_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		52B61607629B7C8171BDE07D /* [CP] Check Pods Manifest.lock */ = {

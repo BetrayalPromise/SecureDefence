@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SecureDefense'
-  s.version          = '0.0.1'
-  s.summary          = 'A short description of SecureDefense.'
+  s.version          = '0.0.2'
+  s.summary          = 'SecureDefense.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+deal with unsafe operate
                        DESC
 
   s.homepage         = 'https://github.com/BetrayalPromise'
@@ -31,12 +31,12 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'SecureDefense/*'
-  
+
   # s.resource_bundles = {
   #   'SecureDefense' => ['SecureDefense/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'MessageTrash', '~> 0.0.1'
 end
