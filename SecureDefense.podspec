@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SecureDefense'
-  s.version          = '0.1.0'
+  s.version          = '0.0.1'
   s.summary          = 'A short description of SecureDefense.'
 
 # This description is used to generate tags and improve search results.
