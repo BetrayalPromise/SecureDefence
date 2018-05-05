@@ -3,6 +3,8 @@ use_frameworks!
 target 'SecureDefense_Example' do
   pod 'SecureDefense', :path => '../'
 
+pod 'MessageTrash'
+
   target 'SecureDefense_Tests' do
     inherit! :search_paths
 

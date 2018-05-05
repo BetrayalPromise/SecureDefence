@@ -1,8 +1,8 @@
 {
   "name": "SecureDefense",
-  "version": "0.0.1",
-  "summary": "A short description of SecureDefense.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.0.2",
+  "summary": "SecureDefense.",
+  "description": "deal with unsafe operate",
   "homepage": "https://github.com/BetrayalPromise",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/BetrayalPromise/SecureDefense.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "8.0"

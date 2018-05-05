@@ -14,5 +14,7 @@
 @interface NSObject (Aspect)
 
 @property (nonatomic, weak, readonly) id _Nullable safe;
+@property (nonatomic, assign, readonly) BOOL isSafe;
+
 
 @end

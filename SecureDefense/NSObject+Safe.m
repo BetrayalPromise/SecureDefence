@@ -12,20 +12,33 @@
 @implementation NSObject (Aspect)
 
 - (id)safe {
-    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-    Class kClass        = objc_getClass([className UTF8String]);
-    if (!kClass) {
-        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+    if (!self.isSafe) {
+        NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
+        Class kClass        = objc_getClass([className UTF8String]);
+        if (!kClass) {
+            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+        }
+        object_setClass(self, kClass);
+
+        class_addMethod(kClass, @selector(setValue:forKey:), (IMP)safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
+
+        class_addMethod(kClass, @selector(valueForKey:), (IMP)safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
+
+        objc_registerClassPair(kClass);
+        self.isSafe = YES;
     }
-    object_setClass(self, kClass);
 
-    class_addMethod(kClass, @selector(setValue:forKey:), (IMP)safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
-
-    class_addMethod(kClass, @selector(valueForKey:), (IMP)safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
-
-    objc_registerClassPair(kClass);
     return self;
 }
+
+- (void)setIsSafe:(BOOL)isSafe {
+    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)isSafe {
+    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
+}
+
 
 - (nullable id)valueForUndefinedKey:(NSString *)key {
     NSLog(@"\"%@\"-parameter0:(%@) not found", NSStringFromSelector(_cmd), key);

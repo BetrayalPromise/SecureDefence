@@ -1,9 +1,10 @@
 PODS:
   - MessageTrash (0.0.1)
-  - SecureDefense (0.0.1):
+  - SecureDefense (0.0.2):
     - MessageTrash (~> 0.0.1)
 
 DEPENDENCIES:
+  - MessageTrash
   - SecureDefense (from `../`)
 
 SPEC REPOS:
@@ -16,8 +17,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MessageTrash: 7925feafd22318f4049253b8ed4a457517af1875
-  SecureDefense: ee3ff898a662ac9c55bfa7c212f06c92b61e866d
+  SecureDefense: 5dc309f3814a584ff44a30aaa4f2446b4c56630a
 
-PODFILE CHECKSUM: 9652ad3a7eee691d0cc20bb31d346a37372a49e7
+PODFILE CHECKSUM: 26b66fd278e2e48a1c8174550e79d963b7ecd87f
 
 COCOAPODS: 1.5.0
