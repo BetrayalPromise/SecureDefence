@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/BetrayalPromise/SecureDefense'
+  s.homepage         = 'https://github.com/BetrayalPromise'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'BetrayalPromise' => 'BetrayalPromise@gmail.com' }
@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SecureDefense/Classes/**/*'
+  s.source_files = 'SecureDefense/*'
   
   # s.resource_bundles = {
   #   'SecureDefense' => ['SecureDefense/Assets/*.png']

@@ -6,11 +6,10 @@
 //  Copyright (c) 2018 BetrayalPromise. All rights reserved.
 //
 
-@import UIKit;
 #import "QMTVAppDelegate.h"
+@import UIKit;
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char *argv[]) {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([QMTVAppDelegate class]));
     }

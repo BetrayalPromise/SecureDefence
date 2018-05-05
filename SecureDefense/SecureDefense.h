@@ -1,0 +1,18 @@
+//
+//  SecureDefence.h
+//  Footstone
+//
+//  Created by 李阳 on 8/3/2018.
+//  Copyright © 2018 BetrayalPromise. All rights reserved.
+//
+
+#import "NSArray+Safe.h"
+#import "NSMutableArray+Safe.h"
+#import "NSPointerArray+Safe.h"
+#import "NSDictionary+Safe.h"
+#import "NSMutableDictionary+Safe.h"
+#import "NSSet+Safe.h"
+#import "NSMutableSet+Safe.h"
+#import "NSHashTable+Safe.h"
+#import "NSMapTable+Safe.h"
+

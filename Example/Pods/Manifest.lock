@@ -1,0 +1,16 @@
+PODS:
+  - SecureDefense (0.1.0)
+
+DEPENDENCIES:
+  - SecureDefense (from `../`)
+
+EXTERNAL SOURCES:
+  SecureDefense:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SecureDefense: c558a349738042a6e3286b9a98333dfe2b7be9a0
+
+PODFILE CHECKSUM: 9652ad3a7eee691d0cc20bb31d346a37372a49e7
+
+COCOAPODS: 1.4.0

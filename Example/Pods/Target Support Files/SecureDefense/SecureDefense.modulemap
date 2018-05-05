@@ -1,0 +1,6 @@
+framework module SecureDefense {
+  umbrella header "SecureDefense-umbrella.h"
+
+  export *
+  module * { export * }
+}

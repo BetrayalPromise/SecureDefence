@@ -6,7 +6,6 @@
 //  Copyright (c) 2018 BetrayalPromise. All rights reserved.
 //
 
-@import UIKit;
 
 @interface QMTVViewController : UIViewController
 
