@@ -83,10 +83,10 @@
 //    NSLog(@"%@", hashTable);
 //    [hashTable removeObject:[UIViewController new]];
 
-    NSMapTable * mapTable = [NSMapTable weakToWeakObjectsMapTable];
-    id a = [mapTable objectForKey:nil];
-    [mapTable removeObjectForKey:nil];
-    [mapTable setObject:nil forKey:nil];
+//    NSMapTable * mapTable = [NSMapTable weakToWeakObjectsMapTable];
+//    id a = [mapTable objectForKey:nil];
+//    [mapTable removeObjectForKey:nil];
+//    [mapTable setObject:nil forKey:nil];
 }
 
 - (void)didReceiveMemoryWarning {

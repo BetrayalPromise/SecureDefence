@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SecureDefense'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'SecureDefense.'
 
 # This description is used to generate tags and improve search results.
@@ -38,5 +38,5 @@ deal with unsafe operate
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'MessageTrash', '~> 0.0.1'
+  s.dependency 'MessageTrash'
 end
