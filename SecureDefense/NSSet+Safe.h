@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSSet <T> (Safe)
+@interface NSSet <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSSet <T> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSSet<T> *safe;
 
 + (void)safe;
 

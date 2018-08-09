@@ -7,7 +7,6 @@
 //
 
 #import "QMTVAppDelegate.h"
-@import UIKit;
 
 int main(int argc, char *argv[]) {
     @autoreleasepool {

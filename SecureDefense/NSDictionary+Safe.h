@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary <K, V> (Safe)
+@interface NSDictionary <K, V>(Safe)
 
-@property (nonatomic, weak, readonly) NSDictionary <K, V> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSDictionary<K, V> *safe;
 
 @end
-

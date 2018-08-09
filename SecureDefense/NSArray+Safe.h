@@ -11,10 +11,8 @@
 /**
  防御数组入参崩溃
  */
-@interface NSArray <T> (Safe)
+@interface NSArray <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSArray <T> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSArray<T> *safe;
 
 @end
-

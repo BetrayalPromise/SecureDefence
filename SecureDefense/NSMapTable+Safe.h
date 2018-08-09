@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMapTable <K, V> (Safe)
+@interface NSMapTable <K, V>(Safe)
 
-@property (nonatomic, weak, readonly) NSMapTable <K, V> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSMapTable<K, V> *safe;
 
 @end

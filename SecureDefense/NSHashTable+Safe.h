@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 
 /// NSHashTable可以添加nil
-@interface NSHashTable <T> (Safe)
+@interface NSHashTable <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSHashTable <T> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSHashTable<T> *safe;
 
 @end

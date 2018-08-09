@@ -13,8 +13,6 @@
  */
 @interface NSPointerArray (Safe)
 
-@property (nonatomic, weak, readonly) NSPointerArray * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSPointerArray *safe;
 
 @end
-

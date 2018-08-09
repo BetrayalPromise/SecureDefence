@@ -12,33 +12,25 @@
 @implementation NSObject (Aspect)
 
 - (id)safe {
-    if (!self.isSafe) {
-        NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-        Class kClass        = objc_getClass([className UTF8String]);
-        if (!kClass) {
-            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-        }
-        object_setClass(self, kClass);
-
-        class_addMethod(kClass, @selector(setValue:forKey:), (IMP)safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
-
-        class_addMethod(kClass, @selector(valueForKey:), (IMP)safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
-
-        objc_registerClassPair(kClass);
-        self.isSafe = YES;
+    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
+        return self;
     }
+    
+    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
+    Class kClass = objc_getClass([className UTF8String]);
+    if (!kClass) {
+        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+    }
+    object_setClass(self, kClass);
+
+    class_addMethod(kClass, @selector(setValue:forKey:), (IMP) safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
+
+    class_addMethod(kClass, @selector(valueForKey:), (IMP) safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
+
+    objc_registerClassPair(kClass);
 
     return self;
 }
-
-- (void)setIsSafe:(BOOL)isSafe {
-    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)isSafe {
-    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
-}
-
 
 - (nullable id)valueForUndefinedKey:(NSString *)key {
     NSLog(@"\"%@\"-parameter0:(%@) not found", NSStringFromSelector(_cmd), key);
@@ -55,11 +47,8 @@
 
 /// 处理 键值都为nil
 void safeSetValueForKey(id self, SEL _cmd, id value, id key) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void * (*objc_msgSendToSuper)(const void *, SEL, id,  id) = (void *)objc_msgSendSuper;
+    struct objc_super superClass = {.receiver = self, .super_class = class_getSuperclass(object_getClass(self))};
+    void *(*objc_msgSendToSuper)(const void *, SEL, id, id) = (void *) objc_msgSendSuper;
 
     if (!value) {
         NSLog(@"\"%@\"-value:(%@) can not be nil", NSStringFromSelector(_cmd), value);
@@ -72,12 +61,9 @@ void safeSetValueForKey(id self, SEL _cmd, id value, id key) {
     objc_msgSendToSuper(&superClass, _cmd, value, key);
 }
 
-void * safeValueForKey(id self, SEL _cmd, id key) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void * (*objc_msgSendToSuper)(const void *, SEL, id) = (void *)objc_msgSendSuper;
+void *safeValueForKey(id self, SEL _cmd, id key) {
+    struct objc_super superClass = {.receiver = self, .super_class = class_getSuperclass(object_getClass(self))};
+    void *(*objc_msgSendToSuper)(const void *, SEL, id) = (void *) objc_msgSendSuper;
     if (!key) {
         NSLog(@"\"%@\"-key:(%@) can not be nil", NSStringFromSelector(_cmd), key);
         return nil;
@@ -86,6 +72,3 @@ void * safeValueForKey(id self, SEL _cmd, id key) {
 }
 
 @end
-
-
-

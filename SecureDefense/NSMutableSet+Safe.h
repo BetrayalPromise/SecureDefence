@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableSet <T> (Safe)
+@interface NSMutableSet <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSMutableSet <T> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
+@property (nonatomic, weak, readonly) NSMutableSet<T> *safe;
 
 @end
