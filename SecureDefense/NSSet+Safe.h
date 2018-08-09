@@ -12,6 +12,4 @@
 
 @property (nonatomic, weak, readonly) NSSet<T> *safe;
 
-+ (void)safe;
-
 @end

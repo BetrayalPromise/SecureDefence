@@ -143,11 +143,9 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/MessageTrash/MessageTrash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SecureDefense/SecureDefense.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/MessageTrash/MessageTrash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SecureDefense/SecureDefense.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

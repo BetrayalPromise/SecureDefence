@@ -1,6 +1,6 @@
 {
   "name": "SecureDefense",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "summary": "SecureDefense.",
   "description": "deal with unsafe operate",
   "homepage": "https://github.com/BetrayalPromise",
@@ -12,16 +12,33 @@
     "BetrayalPromise": "BetrayalPromise@gmail.com"
   },
   "source": {
-    "git": "https://github.com/BetrayalPromise/SecureDefense.git",
-    "tag": "0.0.2"
+    "git": "https://github.com/BetrayalPromise/SecureDefence.git",
+    "tag": "0.0.5"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "SecureDefense/*",
-  "dependencies": {
-    "MessageTrash": [
-      "~> 0.0.1"
-    ]
-  }
+  "source_files": "SecureDefense/SecureDefense.h",
+  "subspecs": [
+    {
+      "name": "Container",
+      "source_files": "SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.{h,m}",
+      "public_header_files": "SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.h"
+    },
+    {
+      "name": "KeyValue",
+      "source_files": "SecureDefense/NSObject+SafeKeyValue.{h,m}",
+      "public_header_files": "SecureDefense/NSObject+SafeKeyValue.h"
+    },
+    {
+      "name": "MessageCenter",
+      "source_files": "SecureDefense/MessageCenter.{h,m}",
+      "public_header_files": "SecureDefense/MessageCenter.h"
+    },
+    {
+      "name": "Selector",
+      "source_files": "SecureDefense/NSObject+UnknowMessage.{h,m}",
+      "public_header_files": "SecureDefense/NSObject+UnknowMessage.h"
+    }
+  ]
 }

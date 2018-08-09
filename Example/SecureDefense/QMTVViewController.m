@@ -20,12 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //    NSArray * array = @[@"A", @"B", @"C"].safe;
 
     //    [array objectAtIndex:0];
     //    [array arrayByAddingObject:nil];
-    //    [array indexOfObject:@"B" inRange:NSMakeRange(0, 2)];
-    //    [array indexOfObjectIdenticalTo:@"B" inRange:NSMakeRange(0, 2)];
     //    [array subarrayWithRange:NSMakeRange(0, 1)];
     //    [array objectsAtIndexes:[NSIndexSet indexSetWithIndex:10]];
     //    [array objectAtIndexedSubscript:1000];
@@ -76,13 +73,10 @@
 
 
     //    NSHashTable * hashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsWeakMemory)];
-    //    NSLog(@"%@", hashTable);
     //    [hashTable addObject:nil];
-    //    NSLog(@"%@", hashTable);
     //    NSObject *obj = [NSObject new];
     //    __weak NSObject *obj1 =obj;
     //    [hashTable addObject:obj1];
-    //    NSLog(@"%@", hashTable);
     //    [hashTable removeObject:[UIViewController new]];
 
     //    NSMapTable * mapTable = [NSMapTable weakToWeakObjectsMapTable];
@@ -98,25 +92,35 @@
 
 
 
-    //    NSArray * array3 = [NSArray arrayWithObject:@"1"].safe;
     //    NSArray * test3 = [NSArray arrayWithObject:@"1"];
     //
-    //    NSArray * array4 = [NSArray arrayWithObject:@1].safe;
     //    NSArray * test4 = [NSArray arrayWithObject:@1];
 
     NSArray *a = [NSArray findSubClass];
-    //    NSLog(@"%@", a);
 
     // __NSSingleObjectArrayI __NSArray0 __NSArrayI
 
-    NSArray *arr1 = [[NSArray alloc] initWithObjects:@0, nil].safe;
+//    NSArray *arr1 = [[NSArray alloc] initWithObjects:@0, nil].safe;
+//
+//    NSArray *arr2 = [[NSArray alloc] initWithObjects:@0, nil].safe;
+//
+//    NSArray *arr3 = [[NSArray alloc] initWithObjects:@0, nil];
+//
+//    NSArray *arr4 = [[NSArray alloc] initWithObjects:@0, @1, nil].safe;
+//    NSArray *arr5 = [[NSArray alloc] initWithObjects:@0, @1, nil];
 
-    NSArray *arr2 = [[NSArray alloc] initWithObjects:@0, nil].safe;
 
-    NSArray *arr3 = [[NSArray alloc] initWithObjects:@0, nil];
+    [NSObject safeGuardUnrecognizedSelector];
+    [NSObject safeGuardUnrecognizedSelector];
+    [NSObject safeGuardUnrecognizedSelector];
+    [NSObject safeGuardUnrecognizedSelector];
+    [NSObject safeGuardUnrecognizedSelector];
 
-    NSArray *arr4 = [[NSArray alloc] initWithObjects:@0, @1, nil].safe;
-    NSArray *arr5 = [[NSArray alloc] initWithObjects:@0, @1, nil];
+
+    [self performSelector:@selector(ABCD)];
+    [UIButton performSelector:@selector(ABCD)];
+    [self performSelector:@selector(ABCD)];
+    [UIButton performSelector:@selector(ABCD)];
 }
 
 - (void)didReceiveMemoryWarning {

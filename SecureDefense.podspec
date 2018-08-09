@@ -30,7 +30,7 @@ deal with unsafe operate
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SecureDefense/*'
+  s.source_files = 'SecureDefense/SecureDefense.h'
 
   # s.resource_bundles = {
   #   'SecureDefense' => ['SecureDefense/Assets/*.png']
@@ -38,5 +38,25 @@ deal with unsafe operate
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'MessageTrash'
+  # s.dependency 'MessageTrash'
+
+  s.subspec 'Container' do |ss|
+    ss.source_files = 'SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.{h,m}'
+    ss.public_header_files = 'SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.h'
+  end
+
+  s.subspec 'KeyValue' do |ss|
+    ss.source_files = 'SecureDefense/NSObject+SafeKeyValue.{h,m}'
+    ss.public_header_files = 'SecureDefense/NSObject+SafeKeyValue.h'
+  end
+  s.subspec 'MessageCenter' do |ss|
+    ss.source_files = 'SecureDefense/MessageCenter.{h,m}'
+    ss.public_header_files = 'SecureDefense/MessageCenter.h'
+  end
+
+  s.subspec 'Selector' do |ss|
+    ss.source_files = 'SecureDefense/NSObject+UnknowMessage.{h,m}'
+    ss.public_header_files = 'SecureDefense/NSObject+UnknowMessage.h'
+  end
+
 end

@@ -15,3 +15,8 @@
 #import "NSMutableSet+Safe.h"
 #import "NSPointerArray+Safe.h"
 #import "NSSet+Safe.h"
+
+#import "MessageCenter.h"
+#import "NSObject+SafeKeyValue.h"
+
+#import "NSObject+UnknowMessage.h"

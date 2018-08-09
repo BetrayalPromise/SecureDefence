@@ -6,7 +6,7 @@
 //  Copyright © 2018 BetrayalPromise. All rights reserved.
 //
 
-#import "MessageTrash.h"
+#import "MessageCenter.h"
 #import "NSSet+Safe.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
@@ -15,9 +15,9 @@
 
 - (NSSet<id> *)safe {
     if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageTrash new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageCenter new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    
+
     if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
         return self;
     }
@@ -29,28 +29,17 @@
     }
     object_setClass(self, kClass);
     class_addMethod(kClass, @selector(setByAddingObject:), (IMP) safeSetByAddingObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setByAddingObject:))));
+    class_addMethod(kClass, @selector(setWithObject:), (IMP) safeSetWithObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setWithObject:))));
 
     objc_registerClassPair(kClass);
     return self;
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageTrash new];
+    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageCenter new];
 }
 
 - (void)associatedObjectLifeCycle {
-}
-
-+ (void)safe {
-    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-    Class kClass = objc_getClass([className UTF8String]);
-    if (!kClass) {
-        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-    }
-    object_setClass(self, kClass);
-    class_addMethod(kClass, @selector(setWithObject:), (IMP) safeSetWithObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setWithObject:))));
-
-    objc_registerClassPair(kClass);
 }
 
 static NSSet<id> *safeSetByAddingObject(id self, SEL _cmd, id anObject) {

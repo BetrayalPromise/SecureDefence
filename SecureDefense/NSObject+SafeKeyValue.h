@@ -11,9 +11,10 @@
 /**
  防御 KVC KVO 崩溃
  */
-@interface NSObject (Aspect)
+@interface NSObject (SafeKeyValue)
 
 @property (nonatomic, weak, readonly) id _Nullable safe;
 
++ (void)safeGuardKeyValue;
 
 @end

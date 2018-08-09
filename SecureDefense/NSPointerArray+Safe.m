@@ -6,7 +6,7 @@
 //  Copyright © 2018 BetrayalPromise. All rights reserved.
 //
 
-#import "MessageTrash.h"
+#import "MessageCenter.h"
 #import "NSPointerArray+Safe.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
@@ -15,7 +15,7 @@
 
 - (NSPointerArray *)safe {
     if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageTrash new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageCenter new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 
     if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
@@ -37,7 +37,7 @@
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageTrash new];
+    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageCenter new];
 }
 
 - (void)associatedObjectLifeCycle {

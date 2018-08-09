@@ -6,16 +6,16 @@
 //  Copyright © 2018 BetrayalPromise. All rights reserved.
 //
 
-#import "NSObject+Safe.h"
+#import "NSObject+SafeKeyValue.h"
 #import <objc/message.h>
 
-@implementation NSObject (Aspect)
+@implementation NSObject (SafeKeyValue)
 
 - (id)safe {
     if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
         return self;
     }
-    
+
     NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
     Class kClass = objc_getClass([className UTF8String]);
     if (!kClass) {
@@ -69,6 +69,55 @@ void *safeValueForKey(id self, SEL _cmd, id key) {
         return nil;
     }
     return objc_msgSendToSuper(&superClass, _cmd, key);
+}
+
++ (void)safeGuardKeyValue {
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+
+    Class cls = [self class];
+
+    if (YES) {
+        Method origMethod = class_getInstanceMethod(cls, @selector(setValue:forKey:));
+        SEL origsel = @selector(setValue:forKey:);
+        Method swizMethod = class_getInstanceMethod(cls, @selector(safe_valueForKey:));
+        SEL swizsel = @selector(safe_valueForKey:);
+        BOOL addMehtod = class_addMethod(cls, origsel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
+        if (addMehtod) {
+            class_replaceMethod(cls, swizsel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+        } else {
+            method_exchangeImplementations(origMethod, swizMethod);
+        }
+    }
+
+    if (YES) {
+        Method origMethod = class_getInstanceMethod(cls, @selector(setValue:forKey:));
+        SEL origsel = @selector(setValue:forKey:);
+        Method swizMethod = class_getInstanceMethod(cls, @selector(safe_valueForKey:));
+        SEL swizsel = @selector(safe_valueForKey:);
+        BOOL addMehtod = class_addMethod(cls, origsel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
+        if (addMehtod) {
+            class_replaceMethod(cls, swizsel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+        } else {
+            method_exchangeImplementations(origMethod, swizMethod);
+        }
+    }
+
+    Method source = class_getClassMethod(self, _cmd);
+    method_setImplementation(source, (IMP) instanceEmptyMethod);
+    dispatch_semaphore_signal(semaphore);
+}
+
+- (void)safe_setValue:(id)value forKey:(NSString *)key {
+
+}
+
+- (id)safe_valueForKey:(NSString *)key {
+    return nil;
+}
+
+static inline void instanceEmptyMethod(id self, SEL selector) {
+    printf("+[%s %s]\n", NSStringFromClass(self).UTF8String, NSStringFromSelector(selector).UTF8String);
 }
 
 @end
