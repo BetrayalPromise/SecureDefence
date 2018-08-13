@@ -7,40 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0239C6CCF64B5F21F1E1D44FEA7E829D /* NSDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = D7C9482AAF4148B3D69C473C7A70B0F9 /* NSDictionary+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C609D6A8EE8125C772FC59521349BD8 /* NSMutableDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C55D9E81F3573BCB0498AE0C0C9D1D /* NSMutableDictionary+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1365AD42B1FB95E27972CFB0616E2020 /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = DA760276DEB60829908A501377E509AD /* NSMutableDictionary+Safe.m */; };
-		16F2350E1BBA8E8565D04B281FDAA5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		1B397864CA9C6CBFB16FCA7FB59C2DB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		1C90CF514F7E15A73D0DA64B79E2BD2C /* NSMapTable+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 915668279138BF0E6C505B1258E398B4 /* NSMapTable+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EB5251B25F167A2A65A29C417EEE7A0 /* SecureDefense-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CDF3D41D7A50B2EB924F316905512 /* SecureDefense-dummy.m */; };
-		30F1BAF79D069C7A99C50F8CDE5E20AD /* SecureDefense-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1127A9593B18B45764BCFFB1EBD57B8D /* SecureDefense-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AAD29D5C1441012B3A8CA7667015AE7 /* NSSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCB1E07E03D4DF87C9DF1F1CFA4503F /* NSSet+Safe.m */; };
-		3DCACA98B2DB43B791EEF4A3D399DE71 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1758AFBD6869C33BCC9925FA86BAFC3D /* NSArray+Safe.m */; };
-		540EA8F854B374BBABFE46624D6A888C /* MessageCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = B38D2282CDEBE76DCF4822C752C8F506 /* MessageCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		584E5328BF846A3801ABC5CC0F30D129 /* NSObject+UnknowMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 20B4D5D8565B5AE1281119C5E8405BB0 /* NSObject+UnknowMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DD60F35AC39135B04BFE8921F83F9C6 /* NSSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = A11ECD68B7001D2C3B8DF54F7652B577 /* NSSet+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		095C38DB8019A222CC77C605294F2EF8 /* NSMutableArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 5969E59A2BE5ABD377F2AF1D92530A14 /* NSMutableArray+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1614C21585D982C38EBCFD8F3FF4216B /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = B60A586C2720AB4160EAD138F01AD0F8 /* NSDictionary+Safe.m */; };
+		1FABD7F4082434D110A24D7E925E11FB /* NSObject+UnknowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 090EDF0D019B210D1F0E9655BDC04C81 /* NSObject+UnknowMessage.m */; };
+		21C8230E7EDFB51CF541E6D56C0908C9 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D08383FF1CA6ECF484A18E5328C25B /* MessageCenter.m */; };
+		29E73805B6267BE70F965F28638DD056 /* SecureDefense.h in Headers */ = {isa = PBXBuildFile; fileRef = DADC47CCDAD69726AB37DB50E2BA3C76 /* SecureDefense.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29E744061F8A6CCCCF55C6232B78ADC1 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9326AD7A3C3B701981C0396EC161D6EE /* NSArray+Safe.m */; };
+		29FCF7BB86282894F722C2D34EF16364 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		2FF28AF8E3D40127215BBDD499827F86 /* SecureDefense-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6887B8FF1CA766AFD3F42CA18CD5BE75 /* SecureDefense-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C6084A84FE6F2949257083DDC79E213 /* NSMutableSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 59573EC2E51CC634F4CDFCAE32BE0D89 /* NSMutableSet+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		450B25C2B59B8CEA8FA53BDF173B45F9 /* SecureDefense-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B7DF1F9B37575A43A4742DF5756C71 /* SecureDefense-dummy.m */; };
+		5D147152406A65E4A427D971A4268146 /* NSHashTable+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C27C8AEBFC364CA87D555ACFA86529B /* NSHashTable+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61C0804EC1934FBFC3F039BEF5E4D53C /* Pods-SecureDefense_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73EAF0D9C4A6EB626C9C89E86094B41B /* Pods-SecureDefense_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6954BA65030187E5D4DE2142D1F30C97 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A25459F9638C7D7A84C044CD265D078 /* MessageCenter.m */; };
+		646F0AC48BCECAF09D29321BF1CFC9B9 /* NSPointerArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = F2BF5ADEA44436FDC322E90BAB7D17D3 /* NSPointerArray+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		677BFDABA94F9C1E3BF739643CAB0818 /* MessageCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 82649EE89B64B31B2AE5FBA4243F9113 /* MessageCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		743588E96878E3A1ACE435F5C34C7CB3 /* Pods-SecureDefense_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D0FFCB144C72727168E34B8AE754651D /* Pods-SecureDefense_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76BF972AF9C2D95F333913337F72EB76 /* NSPointerArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = D45CB8E255638E6121C85DB414751CAC /* NSPointerArray+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B008E2B97EB747D7061E3ECAFFB5B67 /* SecureDefense.h in Headers */ = {isa = PBXBuildFile; fileRef = F952247A2EA07F87AD73A1215A221168 /* SecureDefense.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		829C5C807ED4A4A216581BCBE1FFAE7A /* NSUserDefaults+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = CB822E809AE81B46597ED597CDA5FFBC /* NSUserDefaults+Safe.m */; };
 		895A27C3D200A418622D5EB78E194F92 /* Pods-SecureDefense_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F04FEDFD3D7C170948F69944D0A1DE1B /* Pods-SecureDefense_Tests-dummy.m */; };
-		8BA99B7DE91B4FC11FF965B8487C38D1 /* NSArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB91DC8C1EA481537BD806034AC611D /* NSArray+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D2ED642F1EB9E05040ACEA76B68A163 /* NSMutableArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 43F289D7F4C9C6159807F33B07B5A4F9 /* NSMutableArray+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F90E2401439B203B3A4BA954A5FA422 /* NSMapTable+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4099547D605FC56CCDE9769559E27A /* NSMapTable+Safe.m */; };
-		B82E0CA1AA9162BE4678A0EE4F1DEF28 /* NSMutableSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D5AB4151CA9525275C615CE46C13DCD /* NSMutableSet+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8A4D8066F892632E95DA68502A6625B /* NSObject+SafeKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 154F422DC238102C1C6BBA4A7BEDEA62 /* NSObject+SafeKeyValue.m */; };
-		BADA1D41AF0728CA22D52C5790BD8A42 /* NSMutableSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A073A6DF911F125F74DD7D6B17147EA /* NSMutableSet+Safe.m */; };
-		BD6595679AFB25B3F2FC8573C6BC8E41 /* NSObject+SafeKeyValue.h in Headers */ = {isa = PBXBuildFile; fileRef = BE82C5596D8D7714AB0D59E9DF18CC88 /* NSObject+SafeKeyValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1C853000DFA0FACF83C7C05F3838228 /* NSObject+UnknowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 243EF0E83BEC36B891F13651B0B332B3 /* NSObject+UnknowMessage.m */; };
-		CA108451EE12EEAC29E8F4123CA127DC /* NSHashTable+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 270A4EEBF5DF14D19BA53EB11E98C1E7 /* NSHashTable+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA542EACC38658FFD88819D4C3794B16 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1452B953CEAA54310B67A8D0C4C841C9 /* NSDictionary+Safe.m */; };
+		8A99924BBBC5EADB95ECE4E12B1A5EA0 /* NSMapTable+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 80186233F5CE585F5343ACD1DFDD63CB /* NSMapTable+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94185255D801B5C455134B7B228495F8 /* NSObject+SafeKeyValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 68920690383241E06400AF5F1506E995 /* NSObject+SafeKeyValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9ED805D6F4E8D884A69A06879E18E43D /* NSSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 73308119F234B22D60AAC76D62B2841D /* NSSet+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FF3F8C568EA2BB34505EF3205F9269A /* NSObject+UnknowMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B002A5F79B25F32C3E46F8A11C8D17F /* NSObject+UnknowMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A37DB2A58EE777CECBB698D8AADEDD6E /* NSArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 071EB24259DEB2758439CDB5F5D90E58 /* NSArray+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA160F2490626D9EDD22EB52B00AE611 /* NSMutableSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CED7B1204A83CA5B5F9268CBF7B8AA /* NSMutableSet+Safe.m */; };
+		AB69763B68871F44687BB33C1D0353A9 /* NSSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 073F0954B72777483C50A7057D49606C /* NSSet+Safe.m */; };
+		BE005D229675BD5077B523C7400A17E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		C419494E0167E6A7CABA3DBA459941E6 /* NSUserDefaults+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = A97EFF54A8FE28240DC3CB6ECB461B20 /* NSUserDefaults+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAC600888CFDA7ACD01083B2DE9BCB57 /* Pods-SecureDefense_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F547AC841BB001F43F486334C004B /* Pods-SecureDefense_Example-dummy.m */; };
-		E178389D137E7B1CA914ACF8DAA04B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		E7E70CE1CA140132263F06AFFA4F90FA /* NSHashTable+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C5F9926D9576A251906419464D090F /* NSHashTable+Safe.m */; };
-		ED24FED951381AF19AC6796413CBF76E /* NSPointerArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 03895F8AC7FAAC02C6A775DB7FC200B7 /* NSPointerArray+Safe.m */; };
-		F7DCD2A3E053D95FB8A70F2213BDE7F9 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CB6480BA3723DD0FDDF8F49DE48ABF /* NSMutableArray+Safe.m */; };
+		D25CBBAC9270AECE8BA160ABB0620EF3 /* NSMapTable+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A4D03F4FA9DE385AF365F9596AA12 /* NSMapTable+Safe.m */; };
+		D55D89772C0517BFF479E4FA3F54FE8D /* NSMutableDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 7736DB87450EF281B86A26FBF3AF3FEF /* NSMutableDictionary+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF0DEC2B77C523F99EF66ABB374E1847 /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB9BDD26E77A896B6608B45E1CA260 /* NSMutableDictionary+Safe.m */; };
+		E43D039F872F61B72FB6A90F33995238 /* NSObject+SafeKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0D6FAACAAED2C15C98B2C40EFA8602 /* NSObject+SafeKeyValue.m */; };
+		E5BB3CFE808759A36F7FF43D368503B1 /* NSPointerArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A848327B178580FB744A224A8529A2A5 /* NSPointerArray+Safe.m */; };
+		F4FDA7E4A7D37AEECB00585E8E4C6E63 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 382AE1589FCF8D219C2A79A2C57E1B84 /* NSMutableArray+Safe.m */; };
+		F599ECAE7C42B2A2FC1A213F40A044BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		F655ECEF7694EC4497FEDA9EE81DF88B /* NSDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 521F4BB7FECA371A64A30C86C27A5776 /* NSDictionary+Safe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC00D4232C2C51E3C644822CD81DE0AE /* NSHashTable+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4E93F8F5B2741178BA10D8223914DC /* NSHashTable+Safe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,65 +63,67 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03895F8AC7FAAC02C6A775DB7FC200B7 /* NSPointerArray+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSPointerArray+Safe.m"; path = "SecureDefense/NSPointerArray+Safe.m"; sourceTree = "<group>"; };
 		0516D48B8626CF5B4C677180741A87A6 /* Pods-SecureDefense_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SecureDefense_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		0676B6EF80204EDD481CAD049FF02C92 /* SecureDefense.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SecureDefense.modulemap; sourceTree = "<group>"; };
+		071EB24259DEB2758439CDB5F5D90E58 /* NSArray+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+Safe.h"; path = "SecureDefense/NSArray+Safe.h"; sourceTree = "<group>"; };
+		073F0954B72777483C50A7057D49606C /* NSSet+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Safe.m"; path = "SecureDefense/NSSet+Safe.m"; sourceTree = "<group>"; };
 		07F609F5A999D3CA01AAB384ABF70765 /* Pods-SecureDefense_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SecureDefense_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		090EDF0D019B210D1F0E9655BDC04C81 /* NSObject+UnknowMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+UnknowMessage.m"; path = "SecureDefense/NSObject+UnknowMessage.m"; sourceTree = "<group>"; };
 		10FFC3D435D867C2E41E759E72844AA4 /* Pods-SecureDefense_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SecureDefense_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1127A9593B18B45764BCFFB1EBD57B8D /* SecureDefense-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SecureDefense-umbrella.h"; sourceTree = "<group>"; };
-		12E9BC7B3FB4AC118607935110F9723C /* SecureDefense.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SecureDefense.xcconfig; sourceTree = "<group>"; };
-		1452B953CEAA54310B67A8D0C4C841C9 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safe.m"; path = "SecureDefense/NSDictionary+Safe.m"; sourceTree = "<group>"; };
-		154F422DC238102C1C6BBA4A7BEDEA62 /* NSObject+SafeKeyValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SafeKeyValue.m"; path = "SecureDefense/NSObject+SafeKeyValue.m"; sourceTree = "<group>"; };
-		1758AFBD6869C33BCC9925FA86BAFC3D /* NSArray+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Safe.m"; path = "SecureDefense/NSArray+Safe.m"; sourceTree = "<group>"; };
-		20B4D5D8565B5AE1281119C5E8405BB0 /* NSObject+UnknowMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+UnknowMessage.h"; path = "SecureDefense/NSObject+UnknowMessage.h"; sourceTree = "<group>"; };
+		1BBBDAAB8CE9F35964E78E6DBEF24D29 /* SecureDefense.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SecureDefense.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		21CED7B1204A83CA5B5F9268CBF7B8AA /* NSMutableSet+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableSet+Safe.m"; path = "SecureDefense/NSMutableSet+Safe.m"; sourceTree = "<group>"; };
 		22E86D6D16F821E07E8C1410EDEC0378 /* SecureDefense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SecureDefense.framework; path = SecureDefense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		243EF0E83BEC36B891F13651B0B332B3 /* NSObject+UnknowMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+UnknowMessage.m"; path = "SecureDefense/NSObject+UnknowMessage.m"; sourceTree = "<group>"; };
-		270A4EEBF5DF14D19BA53EB11E98C1E7 /* NSHashTable+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSHashTable+Safe.h"; path = "SecureDefense/NSHashTable+Safe.h"; sourceTree = "<group>"; };
+		2B002A5F79B25F32C3E46F8A11C8D17F /* NSObject+UnknowMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+UnknowMessage.h"; path = "SecureDefense/NSObject+UnknowMessage.h"; sourceTree = "<group>"; };
 		2D1F547AC841BB001F43F486334C004B /* Pods-SecureDefense_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SecureDefense_Example-dummy.m"; sourceTree = "<group>"; };
-		2E22C1079C75521BF846D508338439B7 /* SecureDefense.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SecureDefense.modulemap; sourceTree = "<group>"; };
+		34B7DF1F9B37575A43A4742DF5756C71 /* SecureDefense-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SecureDefense-dummy.m"; sourceTree = "<group>"; };
+		382AE1589FCF8D219C2A79A2C57E1B84 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Safe.m"; path = "SecureDefense/NSMutableArray+Safe.m"; sourceTree = "<group>"; };
 		3C31DB53F4C489255A8732F8DECE4858 /* Pods-SecureDefense_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SecureDefense_Example-frameworks.sh"; sourceTree = "<group>"; };
 		3ED7FC59B87CA93CAB7324E190A6D277 /* Pods-SecureDefense_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SecureDefense_Tests.modulemap"; sourceTree = "<group>"; };
-		43F289D7F4C9C6159807F33B07B5A4F9 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Safe.h"; path = "SecureDefense/NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		3FDB9BDD26E77A896B6608B45E1CA260 /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+Safe.m"; path = "SecureDefense/NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
+		521F4BB7FECA371A64A30C86C27A5776 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safe.h"; path = "SecureDefense/NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		52C13D1F2CB9DECE26585C9D2D5DD3F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		541A4D03F4FA9DE385AF365F9596AA12 /* NSMapTable+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMapTable+Safe.m"; path = "SecureDefense/NSMapTable+Safe.m"; sourceTree = "<group>"; };
+		58A76F36B6F4B76E74731C296A3FB634 /* SecureDefense-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SecureDefense-prefix.pch"; sourceTree = "<group>"; };
+		59573EC2E51CC634F4CDFCAE32BE0D89 /* NSMutableSet+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableSet+Safe.h"; path = "SecureDefense/NSMutableSet+Safe.h"; sourceTree = "<group>"; };
+		5969E59A2BE5ABD377F2AF1D92530A14 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Safe.h"; path = "SecureDefense/NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5C4E93F8F5B2741178BA10D8223914DC /* NSHashTable+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSHashTable+Safe.m"; path = "SecureDefense/NSHashTable+Safe.m"; sourceTree = "<group>"; };
 		5CD0C7EC6A93513E39D939503582BB03 /* Pods-SecureDefense_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SecureDefense_Tests-resources.sh"; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6887B8FF1CA766AFD3F42CA18CD5BE75 /* SecureDefense-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SecureDefense-umbrella.h"; sourceTree = "<group>"; };
+		68920690383241E06400AF5F1506E995 /* NSObject+SafeKeyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+SafeKeyValue.h"; path = "SecureDefense/NSObject+SafeKeyValue.h"; sourceTree = "<group>"; };
 		6A218E510D95CCD723E724BCA5EA0690 /* Pods-SecureDefense_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SecureDefense_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6A25459F9638C7D7A84C044CD265D078 /* MessageCenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MessageCenter.m; path = SecureDefense/MessageCenter.m; sourceTree = "<group>"; };
-		6A4099547D605FC56CCDE9769559E27A /* NSMapTable+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMapTable+Safe.m"; path = "SecureDefense/NSMapTable+Safe.m"; sourceTree = "<group>"; };
-		6D5AB4151CA9525275C615CE46C13DCD /* NSMutableSet+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableSet+Safe.h"; path = "SecureDefense/NSMutableSet+Safe.h"; sourceTree = "<group>"; };
-		70BBF4C8C1B94202D7A59F07DBD5E333 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6C27C8AEBFC364CA87D555ACFA86529B /* NSHashTable+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSHashTable+Safe.h"; path = "SecureDefense/NSHashTable+Safe.h"; sourceTree = "<group>"; };
+		73308119F234B22D60AAC76D62B2841D /* NSSet+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSSet+Safe.h"; path = "SecureDefense/NSSet+Safe.h"; sourceTree = "<group>"; };
 		73EAF0D9C4A6EB626C9C89E86094B41B /* Pods-SecureDefense_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SecureDefense_Tests-umbrella.h"; sourceTree = "<group>"; };
+		7736DB87450EF281B86A26FBF3AF3FEF /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+Safe.h"; path = "SecureDefense/NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		77D08383FF1CA6ECF484A18E5328C25B /* MessageCenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MessageCenter.m; path = SecureDefense/MessageCenter.m; sourceTree = "<group>"; };
 		7D624BE5522AE85E7FD1D1391FB1DC3F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7FBB341A22AAAE788D6A3C365621A47E /* SecureDefense-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SecureDefense-prefix.pch"; sourceTree = "<group>"; };
-		889CDF3D41D7A50B2EB924F316905512 /* SecureDefense-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SecureDefense-dummy.m"; sourceTree = "<group>"; };
-		8A073A6DF911F125F74DD7D6B17147EA /* NSMutableSet+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableSet+Safe.m"; path = "SecureDefense/NSMutableSet+Safe.m"; sourceTree = "<group>"; };
+		7F0D6FAACAAED2C15C98B2C40EFA8602 /* NSObject+SafeKeyValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SafeKeyValue.m"; path = "SecureDefense/NSObject+SafeKeyValue.m"; sourceTree = "<group>"; };
+		80186233F5CE585F5343ACD1DFDD63CB /* NSMapTable+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMapTable+Safe.h"; path = "SecureDefense/NSMapTable+Safe.h"; sourceTree = "<group>"; };
+		80A4B10EB846765AAB405696DB2E9A5D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82649EE89B64B31B2AE5FBA4243F9113 /* MessageCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MessageCenter.h; path = SecureDefense/MessageCenter.h; sourceTree = "<group>"; };
 		8AB61B71EC66D3C67DB5C21DBE43ECD6 /* Pods-SecureDefense_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SecureDefense_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		915668279138BF0E6C505B1258E398B4 /* NSMapTable+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMapTable+Safe.h"; path = "SecureDefense/NSMapTable+Safe.h"; sourceTree = "<group>"; };
+		9326AD7A3C3B701981C0396EC161D6EE /* NSArray+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Safe.m"; path = "SecureDefense/NSArray+Safe.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0C5F9926D9576A251906419464D090F /* NSHashTable+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSHashTable+Safe.m"; path = "SecureDefense/NSHashTable+Safe.m"; sourceTree = "<group>"; };
-		A11ECD68B7001D2C3B8DF54F7652B577 /* NSSet+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSSet+Safe.h"; path = "SecureDefense/NSSet+Safe.h"; sourceTree = "<group>"; };
 		A1F46F65E339C275276CB77147877022 /* Pods-SecureDefense_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SecureDefense_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A848327B178580FB744A224A8529A2A5 /* NSPointerArray+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSPointerArray+Safe.m"; path = "SecureDefense/NSPointerArray+Safe.m"; sourceTree = "<group>"; };
+		A97EFF54A8FE28240DC3CB6ECB461B20 /* NSUserDefaults+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+Safe.h"; path = "SecureDefense/NSUserDefaults+Safe.h"; sourceTree = "<group>"; };
 		AA43D2312BBB222ADBF4597729C22738 /* Pods-SecureDefense_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SecureDefense_Example-resources.sh"; sourceTree = "<group>"; };
 		AA8E8E047FF0C1E9C51D361D7BE08722 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2C55D9E81F3573BCB0498AE0C0C9D1D /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+Safe.h"; path = "SecureDefense/NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
-		B38D2282CDEBE76DCF4822C752C8F506 /* MessageCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MessageCenter.h; path = SecureDefense/MessageCenter.h; sourceTree = "<group>"; };
-		B3CB6480BA3723DD0FDDF8F49DE48ABF /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Safe.m"; path = "SecureDefense/NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		B60A586C2720AB4160EAD138F01AD0F8 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safe.m"; path = "SecureDefense/NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		B9DAC03654A6FD3B00511A33B0B98F49 /* Pods-SecureDefense_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SecureDefense_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		BB12AACE14E1079BF8531B1C86FA1136 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		BC2EE17626FA35BE8298E322323B4821 /* Pods-SecureDefense_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SecureDefense_Example.modulemap"; sourceTree = "<group>"; };
-		BE82C5596D8D7714AB0D59E9DF18CC88 /* NSObject+SafeKeyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+SafeKeyValue.h"; path = "SecureDefense/NSObject+SafeKeyValue.h"; sourceTree = "<group>"; };
+		C51C8A4B575930B1B0D07EA3464676A9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		CB7E785970B85183766DE8244AE9FFDC /* Pods-SecureDefense_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SecureDefense_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CD5FB140DCE83597B50243712D721D20 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB822E809AE81B46597ED597CDA5FFBC /* NSUserDefaults+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+Safe.m"; path = "SecureDefense/NSUserDefaults+Safe.m"; sourceTree = "<group>"; };
 		CED06B4DE2A3F69951F14C756F393F4E /* Pods-SecureDefense_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SecureDefense_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D0FFCB144C72727168E34B8AE754651D /* Pods-SecureDefense_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SecureDefense_Example-umbrella.h"; sourceTree = "<group>"; };
-		D45CB8E255638E6121C85DB414751CAC /* NSPointerArray+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSPointerArray+Safe.h"; path = "SecureDefense/NSPointerArray+Safe.h"; sourceTree = "<group>"; };
-		D7C9482AAF4148B3D69C473C7A70B0F9 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safe.h"; path = "SecureDefense/NSDictionary+Safe.h"; sourceTree = "<group>"; };
 		D859F78435A1AD3634B159ADFF252E53 /* Pods_SecureDefense_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SecureDefense_Example.framework; path = "Pods-SecureDefense_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA760276DEB60829908A501377E509AD /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+Safe.m"; path = "SecureDefense/NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
+		DADC47CCDAD69726AB37DB50E2BA3C76 /* SecureDefense.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SecureDefense.h; path = SecureDefense/SecureDefense.h; sourceTree = "<group>"; };
+		DD44EC3482A265E9D39D4E530CDFF4B5 /* SecureDefense.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SecureDefense.xcconfig; sourceTree = "<group>"; };
 		EA3F69B3D033F9E385C82EF779A4A8E9 /* Pods_SecureDefense_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SecureDefense_Tests.framework; path = "Pods-SecureDefense_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECCB1E07E03D4DF87C9DF1F1CFA4503F /* NSSet+Safe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Safe.m"; path = "SecureDefense/NSSet+Safe.m"; sourceTree = "<group>"; };
 		F04FEDFD3D7C170948F69944D0A1DE1B /* Pods-SecureDefense_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SecureDefense_Tests-dummy.m"; sourceTree = "<group>"; };
-		F1C8D68FC7A1352E0B32B849C2F66F3A /* SecureDefense.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SecureDefense.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F952247A2EA07F87AD73A1215A221168 /* SecureDefense.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SecureDefense.h; path = SecureDefense/SecureDefense.h; sourceTree = "<group>"; };
-		FFB91DC8C1EA481537BD806034AC611D /* NSArray+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+Safe.h"; path = "SecureDefense/NSArray+Safe.h"; sourceTree = "<group>"; };
+		F2BF5ADEA44436FDC322E90BAB7D17D3 /* NSPointerArray+Safe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSPointerArray+Safe.h"; path = "SecureDefense/NSPointerArray+Safe.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16F2350E1BBA8E8565D04B281FDAA5AD /* Foundation.framework in Frameworks */,
+				F599ECAE7C42B2A2FC1A213F40A044BE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B397864CA9C6CBFB16FCA7FB59C2DB3 /* Foundation.framework in Frameworks */,
+				29FCF7BB86282894F722C2D34EF16364 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,38 +147,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E178389D137E7B1CA914ACF8DAA04B40 /* Foundation.framework in Frameworks */,
+				BE005D229675BD5077B523C7400A17E6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16CA656F3F57069CDA7C8A05C8FADD7C /* MessageCenter */ = {
+		336A96714028FDB5B024A1D8638FDC88 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				B38D2282CDEBE76DCF4822C752C8F506 /* MessageCenter.h */,
-				6A25459F9638C7D7A84C044CD265D078 /* MessageCenter.m */,
-			);
-			name = MessageCenter;
-			sourceTree = "<group>";
-		};
-		1C89C75852861B608C19F77E6EA06A38 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				70BBF4C8C1B94202D7A59F07DBD5E333 /* LICENSE */,
-				BB12AACE14E1079BF8531B1C86FA1136 /* README.md */,
-				F1C8D68FC7A1352E0B32B849C2F66F3A /* SecureDefense.podspec */,
+				C51C8A4B575930B1B0D07EA3464676A9 /* LICENSE */,
+				52C13D1F2CB9DECE26585C9D2D5DD3F0 /* README.md */,
+				1BBBDAAB8CE9F35964E78E6DBEF24D29 /* SecureDefense.podspec */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		2CDEABFD85C01A2CC721904B8B2DD068 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6DBE00D87B8984B23EA4AC17584E0F9A /* SecureDefense */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		3A971F9E186F68141F4F6CC863EC9F1F /* Products */ = {
@@ -187,53 +174,49 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6141C1F4F9681C184DE5BB7152059C34 /* Selector */ = {
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				20B4D5D8565B5AE1281119C5E8405BB0 /* NSObject+UnknowMessage.h */,
-				243EF0E83BEC36B891F13651B0B332B3 /* NSObject+UnknowMessage.m */,
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
 			);
-			name = Selector;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		6DBE00D87B8984B23EA4AC17584E0F9A /* SecureDefense */ = {
+		6C6301BB546DDA7929DFDC5EF736AAAF /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F952247A2EA07F87AD73A1215A221168 /* SecureDefense.h */,
-				E298BF9909DEDA7D1C31C12A14890986 /* Container */,
-				FF4A66A4DEF25E49B57D890D36D782FD /* KeyValue */,
-				16CA656F3F57069CDA7C8A05C8FADD7C /* MessageCenter */,
-				1C89C75852861B608C19F77E6EA06A38 /* Pod */,
-				6141C1F4F9681C184DE5BB7152059C34 /* Selector */,
-				73B61A81D483C12BC059D6523307C591 /* Support Files */,
+				E5151C173FA6AC270ED7B1C4B2B0505D /* SecureDefense */,
 			);
-			name = SecureDefense;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		73B61A81D483C12BC059D6523307C591 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CD5FB140DCE83597B50243712D721D20 /* Info.plist */,
-				2E22C1079C75521BF846D508338439B7 /* SecureDefense.modulemap */,
-				12E9BC7B3FB4AC118607935110F9723C /* SecureDefense.xcconfig */,
-				889CDF3D41D7A50B2EB924F316905512 /* SecureDefense-dummy.m */,
-				7FBB341A22AAAE788D6A3C365621A47E /* SecureDefense-prefix.pch */,
-				1127A9593B18B45764BCFFB1EBD57B8D /* SecureDefense-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SecureDefense";
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				2CDEABFD85C01A2CC721904B8B2DD068 /* Development Pods */,
+				6C6301BB546DDA7929DFDC5EF736AAAF /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				3A971F9E186F68141F4F6CC863EC9F1F /* Products */,
 				AAF967335B7F73728918147E5027A808 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		832591639F3CE9BF27E4E71C47D1B253 /* MessageCenter */ = {
+			isa = PBXGroup;
+			children = (
+				82649EE89B64B31B2AE5FBA4243F9113 /* MessageCenter.h */,
+				77D08383FF1CA6ECF484A18E5328C25B /* MessageCenter.m */,
+			);
+			name = MessageCenter;
+			sourceTree = "<group>";
+		};
+		8BB521EAD88A35BB1B167DA1AAF15337 /* KeyValue */ = {
+			isa = PBXGroup;
+			children = (
+				68920690383241E06400AF5F1506E995 /* NSObject+SafeKeyValue.h */,
+				7F0D6FAACAAED2C15C98B2C40EFA8602 /* NSObject+SafeKeyValue.m */,
+			);
+			name = KeyValue;
 			sourceTree = "<group>";
 		};
 		A2E492641E984836075080B2F859C0DE /* Pods-SecureDefense_Tests */ = {
@@ -252,6 +235,15 @@
 			);
 			name = "Pods-SecureDefense_Tests";
 			path = "Target Support Files/Pods-SecureDefense_Tests";
+			sourceTree = "<group>";
+		};
+		A8DB0D250DC0ABC5B089DA11D907A0FB /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				2B002A5F79B25F32C3E46F8A11C8D17F /* NSObject+UnknowMessage.h */,
+				090EDF0D019B210D1F0E9655BDC04C81 /* NSObject+UnknowMessage.m */,
+			);
+			name = Selector;
 			sourceTree = "<group>";
 		};
 		AAF967335B7F73728918147E5027A808 /* Targets Support Files */ = {
@@ -284,77 +276,78 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+		DBF40DE2D8E3ADDCFFFC2949753DB8D0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+				80A4B10EB846765AAB405696DB2E9A5D /* Info.plist */,
+				0676B6EF80204EDD481CAD049FF02C92 /* SecureDefense.modulemap */,
+				DD44EC3482A265E9D39D4E530CDFF4B5 /* SecureDefense.xcconfig */,
+				34B7DF1F9B37575A43A4742DF5756C71 /* SecureDefense-dummy.m */,
+				58A76F36B6F4B76E74731C296A3FB634 /* SecureDefense-prefix.pch */,
+				6887B8FF1CA766AFD3F42CA18CD5BE75 /* SecureDefense-umbrella.h */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SecureDefense";
 			sourceTree = "<group>";
 		};
-		E298BF9909DEDA7D1C31C12A14890986 /* Container */ = {
+		E5151C173FA6AC270ED7B1C4B2B0505D /* SecureDefense */ = {
 			isa = PBXGroup;
 			children = (
-				FFB91DC8C1EA481537BD806034AC611D /* NSArray+Safe.h */,
-				1758AFBD6869C33BCC9925FA86BAFC3D /* NSArray+Safe.m */,
-				D7C9482AAF4148B3D69C473C7A70B0F9 /* NSDictionary+Safe.h */,
-				1452B953CEAA54310B67A8D0C4C841C9 /* NSDictionary+Safe.m */,
-				270A4EEBF5DF14D19BA53EB11E98C1E7 /* NSHashTable+Safe.h */,
-				A0C5F9926D9576A251906419464D090F /* NSHashTable+Safe.m */,
-				915668279138BF0E6C505B1258E398B4 /* NSMapTable+Safe.h */,
-				6A4099547D605FC56CCDE9769559E27A /* NSMapTable+Safe.m */,
-				43F289D7F4C9C6159807F33B07B5A4F9 /* NSMutableArray+Safe.h */,
-				B3CB6480BA3723DD0FDDF8F49DE48ABF /* NSMutableArray+Safe.m */,
-				B2C55D9E81F3573BCB0498AE0C0C9D1D /* NSMutableDictionary+Safe.h */,
-				DA760276DEB60829908A501377E509AD /* NSMutableDictionary+Safe.m */,
-				6D5AB4151CA9525275C615CE46C13DCD /* NSMutableSet+Safe.h */,
-				8A073A6DF911F125F74DD7D6B17147EA /* NSMutableSet+Safe.m */,
-				D45CB8E255638E6121C85DB414751CAC /* NSPointerArray+Safe.h */,
-				03895F8AC7FAAC02C6A775DB7FC200B7 /* NSPointerArray+Safe.m */,
-				A11ECD68B7001D2C3B8DF54F7652B577 /* NSSet+Safe.h */,
-				ECCB1E07E03D4DF87C9DF1F1CFA4503F /* NSSet+Safe.m */,
+				DADC47CCDAD69726AB37DB50E2BA3C76 /* SecureDefense.h */,
+				E96BFFD931955796DDEB4F8A412AA587 /* Container */,
+				8BB521EAD88A35BB1B167DA1AAF15337 /* KeyValue */,
+				832591639F3CE9BF27E4E71C47D1B253 /* MessageCenter */,
+				336A96714028FDB5B024A1D8638FDC88 /* Pod */,
+				A8DB0D250DC0ABC5B089DA11D907A0FB /* Selector */,
+				DBF40DE2D8E3ADDCFFFC2949753DB8D0 /* Support Files */,
+				F999F30A0E0DA611C1CE388317E7E326 /* UserDefault */,
+			);
+			name = SecureDefense;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		E96BFFD931955796DDEB4F8A412AA587 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				071EB24259DEB2758439CDB5F5D90E58 /* NSArray+Safe.h */,
+				9326AD7A3C3B701981C0396EC161D6EE /* NSArray+Safe.m */,
+				521F4BB7FECA371A64A30C86C27A5776 /* NSDictionary+Safe.h */,
+				B60A586C2720AB4160EAD138F01AD0F8 /* NSDictionary+Safe.m */,
+				6C27C8AEBFC364CA87D555ACFA86529B /* NSHashTable+Safe.h */,
+				5C4E93F8F5B2741178BA10D8223914DC /* NSHashTable+Safe.m */,
+				80186233F5CE585F5343ACD1DFDD63CB /* NSMapTable+Safe.h */,
+				541A4D03F4FA9DE385AF365F9596AA12 /* NSMapTable+Safe.m */,
+				5969E59A2BE5ABD377F2AF1D92530A14 /* NSMutableArray+Safe.h */,
+				382AE1589FCF8D219C2A79A2C57E1B84 /* NSMutableArray+Safe.m */,
+				7736DB87450EF281B86A26FBF3AF3FEF /* NSMutableDictionary+Safe.h */,
+				3FDB9BDD26E77A896B6608B45E1CA260 /* NSMutableDictionary+Safe.m */,
+				59573EC2E51CC634F4CDFCAE32BE0D89 /* NSMutableSet+Safe.h */,
+				21CED7B1204A83CA5B5F9268CBF7B8AA /* NSMutableSet+Safe.m */,
+				F2BF5ADEA44436FDC322E90BAB7D17D3 /* NSPointerArray+Safe.h */,
+				A848327B178580FB744A224A8529A2A5 /* NSPointerArray+Safe.m */,
+				73308119F234B22D60AAC76D62B2841D /* NSSet+Safe.h */,
+				073F0954B72777483C50A7057D49606C /* NSSet+Safe.m */,
 			);
 			name = Container;
 			sourceTree = "<group>";
 		};
-		FF4A66A4DEF25E49B57D890D36D782FD /* KeyValue */ = {
+		F999F30A0E0DA611C1CE388317E7E326 /* UserDefault */ = {
 			isa = PBXGroup;
 			children = (
-				BE82C5596D8D7714AB0D59E9DF18CC88 /* NSObject+SafeKeyValue.h */,
-				154F422DC238102C1C6BBA4A7BEDEA62 /* NSObject+SafeKeyValue.m */,
+				A97EFF54A8FE28240DC3CB6ECB461B20 /* NSUserDefaults+Safe.h */,
+				CB822E809AE81B46597ED597CDA5FFBC /* NSUserDefaults+Safe.m */,
 			);
-			name = KeyValue;
+			name = UserDefault;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6CF352A294E7D011D88631FCC24907A9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				540EA8F854B374BBABFE46624D6A888C /* MessageCenter.h in Headers */,
-				8BA99B7DE91B4FC11FF965B8487C38D1 /* NSArray+Safe.h in Headers */,
-				0239C6CCF64B5F21F1E1D44FEA7E829D /* NSDictionary+Safe.h in Headers */,
-				CA108451EE12EEAC29E8F4123CA127DC /* NSHashTable+Safe.h in Headers */,
-				1C90CF514F7E15A73D0DA64B79E2BD2C /* NSMapTable+Safe.h in Headers */,
-				8D2ED642F1EB9E05040ACEA76B68A163 /* NSMutableArray+Safe.h in Headers */,
-				0C609D6A8EE8125C772FC59521349BD8 /* NSMutableDictionary+Safe.h in Headers */,
-				B82E0CA1AA9162BE4678A0EE4F1DEF28 /* NSMutableSet+Safe.h in Headers */,
-				BD6595679AFB25B3F2FC8573C6BC8E41 /* NSObject+SafeKeyValue.h in Headers */,
-				584E5328BF846A3801ABC5CC0F30D129 /* NSObject+UnknowMessage.h in Headers */,
-				76BF972AF9C2D95F333913337F72EB76 /* NSPointerArray+Safe.h in Headers */,
-				5DD60F35AC39135B04BFE8921F83F9C6 /* NSSet+Safe.h in Headers */,
-				30F1BAF79D069C7A99C50F8CDE5E20AD /* SecureDefense-umbrella.h in Headers */,
-				7B008E2B97EB747D7061E3ECAFFB5B67 /* SecureDefense.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D588253270523D58AD80041AA6D96DF1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +361,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				743588E96878E3A1ACE435F5C34C7CB3 /* Pods-SecureDefense_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBA25666A59E25E46DF2B4A685E1F72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				677BFDABA94F9C1E3BF739643CAB0818 /* MessageCenter.h in Headers */,
+				A37DB2A58EE777CECBB698D8AADEDD6E /* NSArray+Safe.h in Headers */,
+				F655ECEF7694EC4497FEDA9EE81DF88B /* NSDictionary+Safe.h in Headers */,
+				5D147152406A65E4A427D971A4268146 /* NSHashTable+Safe.h in Headers */,
+				8A99924BBBC5EADB95ECE4E12B1A5EA0 /* NSMapTable+Safe.h in Headers */,
+				095C38DB8019A222CC77C605294F2EF8 /* NSMutableArray+Safe.h in Headers */,
+				D55D89772C0517BFF479E4FA3F54FE8D /* NSMutableDictionary+Safe.h in Headers */,
+				3C6084A84FE6F2949257083DDC79E213 /* NSMutableSet+Safe.h in Headers */,
+				94185255D801B5C455134B7B228495F8 /* NSObject+SafeKeyValue.h in Headers */,
+				9FF3F8C568EA2BB34505EF3205F9269A /* NSObject+UnknowMessage.h in Headers */,
+				646F0AC48BCECAF09D29321BF1CFC9B9 /* NSPointerArray+Safe.h in Headers */,
+				9ED805D6F4E8D884A69A06879E18E43D /* NSSet+Safe.h in Headers */,
+				C419494E0167E6A7CABA3DBA459941E6 /* NSUserDefaults+Safe.h in Headers */,
+				2FF28AF8E3D40127215BBDD499827F86 /* SecureDefense-umbrella.h in Headers */,
+				29E73805B6267BE70F965F28638DD056 /* SecureDefense.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +411,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FE6EC3155CB83E906B2998DBCA1281B /* Build configuration list for PBXNativeTarget "SecureDefense" */;
 			buildPhases = (
-				5B5307C175EE75154D5FB64E05289A90 /* Sources */,
+				3FCB2DAA4DB8DD4A05DCD8E9CC053534 /* Sources */,
 				1318A4757A7D2902E8CA47CCED2D5BA8 /* Frameworks */,
-				6CF352A294E7D011D88631FCC24907A9 /* Headers */,
+				ECBA25666A59E25E46DF2B4A685E1F72 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -456,23 +471,24 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5B5307C175EE75154D5FB64E05289A90 /* Sources */ = {
+		3FCB2DAA4DB8DD4A05DCD8E9CC053534 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6954BA65030187E5D4DE2142D1F30C97 /* MessageCenter.m in Sources */,
-				3DCACA98B2DB43B791EEF4A3D399DE71 /* NSArray+Safe.m in Sources */,
-				CA542EACC38658FFD88819D4C3794B16 /* NSDictionary+Safe.m in Sources */,
-				E7E70CE1CA140132263F06AFFA4F90FA /* NSHashTable+Safe.m in Sources */,
-				9F90E2401439B203B3A4BA954A5FA422 /* NSMapTable+Safe.m in Sources */,
-				F7DCD2A3E053D95FB8A70F2213BDE7F9 /* NSMutableArray+Safe.m in Sources */,
-				1365AD42B1FB95E27972CFB0616E2020 /* NSMutableDictionary+Safe.m in Sources */,
-				BADA1D41AF0728CA22D52C5790BD8A42 /* NSMutableSet+Safe.m in Sources */,
-				B8A4D8066F892632E95DA68502A6625B /* NSObject+SafeKeyValue.m in Sources */,
-				C1C853000DFA0FACF83C7C05F3838228 /* NSObject+UnknowMessage.m in Sources */,
-				ED24FED951381AF19AC6796413CBF76E /* NSPointerArray+Safe.m in Sources */,
-				3AAD29D5C1441012B3A8CA7667015AE7 /* NSSet+Safe.m in Sources */,
-				2EB5251B25F167A2A65A29C417EEE7A0 /* SecureDefense-dummy.m in Sources */,
+				21C8230E7EDFB51CF541E6D56C0908C9 /* MessageCenter.m in Sources */,
+				29E744061F8A6CCCCF55C6232B78ADC1 /* NSArray+Safe.m in Sources */,
+				1614C21585D982C38EBCFD8F3FF4216B /* NSDictionary+Safe.m in Sources */,
+				FC00D4232C2C51E3C644822CD81DE0AE /* NSHashTable+Safe.m in Sources */,
+				D25CBBAC9270AECE8BA160ABB0620EF3 /* NSMapTable+Safe.m in Sources */,
+				F4FDA7E4A7D37AEECB00585E8E4C6E63 /* NSMutableArray+Safe.m in Sources */,
+				DF0DEC2B77C523F99EF66ABB374E1847 /* NSMutableDictionary+Safe.m in Sources */,
+				AA160F2490626D9EDD22EB52B00AE611 /* NSMutableSet+Safe.m in Sources */,
+				E43D039F872F61B72FB6A90F33995238 /* NSObject+SafeKeyValue.m in Sources */,
+				1FABD7F4082434D110A24D7E925E11FB /* NSObject+UnknowMessage.m in Sources */,
+				E5BB3CFE808759A36F7FF43D368503B1 /* NSPointerArray+Safe.m in Sources */,
+				AB69763B68871F44687BB33C1D0353A9 /* NSSet+Safe.m in Sources */,
+				829C5C807ED4A4A216581BCBE1FFAE7A /* NSUserDefaults+Safe.m in Sources */,
+				450B25C2B59B8CEA8FA53BDF173B45F9 /* SecureDefense-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +528,7 @@
 /* Begin XCBuildConfiguration section */
 		4A8EE6E1D63344B7ABF93BA1EB3BABC9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12E9BC7B3FB4AC118607935110F9723C /* SecureDefense.xcconfig */;
+			baseConfigurationReference = DD44EC3482A265E9D39D4E530CDFF4B5 /* SecureDefense.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -610,7 +626,7 @@
 		};
 		531B2DA2CB955F0A1BF6182B5DE3C2B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12E9BC7B3FB4AC118607935110F9723C /* SecureDefense.xcconfig */;
+			baseConfigurationReference = DD44EC3482A265E9D39D4E530CDFF4B5 /* SecureDefense.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

@@ -23,6 +23,7 @@
 #import "NSObject+SafeKeyValue.h"
 #import "MessageCenter.h"
 #import "NSObject+UnknowMessage.h"
+#import "NSUserDefaults+Safe.h"
 
 FOUNDATION_EXPORT double SecureDefenseVersionNumber;
 FOUNDATION_EXPORT const unsigned char SecureDefenseVersionString[];

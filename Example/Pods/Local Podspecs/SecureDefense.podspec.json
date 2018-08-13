@@ -39,6 +39,11 @@
       "name": "Selector",
       "source_files": "SecureDefense/NSObject+UnknowMessage.{h,m}",
       "public_header_files": "SecureDefense/NSObject+UnknowMessage.h"
+    },
+    {
+      "name": "UserDefault",
+      "source_files": "SecureDefense/NSUserDefaults+Safe.{h,m}",
+      "public_header_files": "SecureDefense/NSUserDefaults+Safe.h"
     }
   ]
 }

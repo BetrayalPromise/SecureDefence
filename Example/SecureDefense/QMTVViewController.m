@@ -121,6 +121,8 @@
     [UIButton performSelector:@selector(ABCD)];
     [self performSelector:@selector(ABCD)];
     [UIButton performSelector:@selector(ABCD)];
+    
+    [self.safe setValue:nil forKey:nil];
 }
 
 - (void)didReceiveMemoryWarning {

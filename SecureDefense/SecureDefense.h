@@ -20,3 +20,5 @@
 #import "NSObject+SafeKeyValue.h"
 
 #import "NSObject+UnknowMessage.h"
+
+#import "NSUserDefaults+Safe.h"

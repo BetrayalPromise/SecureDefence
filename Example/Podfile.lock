@@ -4,10 +4,12 @@ PODS:
     - SecureDefense/KeyValue (= 0.0.5)
     - SecureDefense/MessageCenter (= 0.0.5)
     - SecureDefense/Selector (= 0.0.5)
+    - SecureDefense/UserDefault (= 0.0.5)
   - SecureDefense/Container (0.0.5)
   - SecureDefense/KeyValue (0.0.5)
   - SecureDefense/MessageCenter (0.0.5)
   - SecureDefense/Selector (0.0.5)
+  - SecureDefense/UserDefault (0.0.5)
 
 DEPENDENCIES:
   - SecureDefense (from `../`)
@@ -17,7 +19,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SecureDefense: cff184c70e4c6ffb2f039385ee6f888df49186ef
+  SecureDefense: 4044b71c511c3d69a6f3f13c59706a25e5e25afd
 
 PODFILE CHECKSUM: 9652ad3a7eee691d0cc20bb31d346a37372a49e7
 

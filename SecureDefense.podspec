@@ -58,5 +58,10 @@ deal with unsafe operate
     ss.source_files = 'SecureDefense/NSObject+UnknowMessage.{h,m}'
     ss.public_header_files = 'SecureDefense/NSObject+UnknowMessage.h'
   end
+  
+  s.subspec 'UserDefault' do |ss|
+      ss.source_files = 'SecureDefense/NSUserDefaults+Safe.{h,m}'
+      ss.public_header_files = 'SecureDefense/NSUserDefaults+Safe.h'
+  end
 
 end
