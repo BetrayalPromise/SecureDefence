@@ -44,6 +44,11 @@
       "name": "UserDefault",
       "source_files": "SecureDefense/NSUserDefaults+Safe.{h,m}",
       "public_header_files": "SecureDefense/NSUserDefaults+Safe.h"
+    },
+    {
+      "name": "NoticationCenter",
+      "source_files": "SecureDefense/NSNotificationCenter+SafeGuardRemove.{h,m}",
+      "public_header_files": "SecureDefense/NSNotificationCenter+SafeGuardRemove.h"
     }
   ]
 }

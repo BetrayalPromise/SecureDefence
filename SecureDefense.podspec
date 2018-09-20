@@ -64,4 +64,9 @@ deal with unsafe operate
       ss.public_header_files = 'SecureDefense/NSUserDefaults+Safe.h'
   end
 
+  s.subspec 'NoticationCenter' do |ss|
+      ss.source_files = 'SecureDefense/NSNotificationCenter+SafeGuardRemove.{h,m}'
+      ss.public_header_files = 'SecureDefense/NSNotificationCenter+SafeGuardRemove.h'
+  end
+
 end
