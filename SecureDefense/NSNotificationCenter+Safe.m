@@ -8,6 +8,7 @@
 
 #import "NSNotificationCenter+Safe.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 
 @interface AssociatedRecord : NSObject
 
@@ -44,37 +45,29 @@
 
 @implementation NSNotificationCenter (SafeGuardRemove)
 
-+ (void)safeGuardRemove {
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
-    Class cls = [self class];
-
-    if (YES) {
-        Method origMethod = class_getInstanceMethod(cls, @selector(addObserver:selector:name:object:));
-        SEL origsel = @selector(addObserver:selector:name:object:);
-        Method swizMethod = class_getInstanceMethod(cls, @selector(safe_addObserver:selector:name:object:));
-        SEL swizsel = @selector(safe_addObserver:selector:name:object:);
-        BOOL addMehtod = class_addMethod(cls, origsel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
-        if (addMehtod) {
-            class_replaceMethod(cls, swizsel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
-        } else {
-            method_exchangeImplementations(origMethod, swizMethod);
-        }
+- (NSNotificationCenter *)safe {
+    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
+        return self;
     }
+    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
+    Class kClass = objc_getClass([className UTF8String]);
+    if (!kClass) {
+        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+    }
+    object_setClass(self, kClass);
 
-    Method source = class_getClassMethod(self, _cmd);
-    method_setImplementation(source, (IMP) instanceEmptyMethod);
-    dispatch_semaphore_signal(semaphore);
+    class_addMethod(kClass, @selector(objectForKey:), (IMP) safeAddObserverSelectorNameObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(addObserver:selector:name:object:))));
+
+    objc_registerClassPair(kClass);
+
+    return self;
 }
 
-static inline void instanceEmptyMethod(id self, SEL selector) {
-    printf("+[%s %s]\n", NSStringFromClass(self).UTF8String, NSStringFromSelector(selector).UTF8String);
-}
-
-- (void)safe_addObserver:(id)observer selector:(SEL)aSelector name:(NSNotificationName)aName object:(id)anObject {
+static void safeAddObserverSelectorNameObject(id self, SEL _cmd, id observer, SEL aSelector, NSNotificationName aName, id anObject) {
+    struct objc_super superClass = {.receiver = self, .super_class = class_getSuperclass(object_getClass(self))};
+    void (* objc_msgSendToSuper)(const void *, SEL, id, SEL, NSNotificationName, id) = (void *) objc_msgSendSuper;
     addRecord(self, observer);
-    [self safe_addObserver:observer selector:aSelector name:aName object:anObject];
+    objc_msgSendToSuper(&superClass, _cmd, observer, aSelector, aName, anObject);
 }
 
 void addRecord(NSNotificationCenter *center ,id obs) {
