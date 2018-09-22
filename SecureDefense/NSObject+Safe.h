@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- 防御 KVC KVO 崩溃
- */
 @interface NSObject (SafeKeyValue)
 
+///  防御 KVC KVO 崩溃
 @property (nonatomic, weak, readonly) id _Nullable safe;
 
-+ (void)safeGuardKeyValue;
+/// 防御 发送到未知的选择子到实例
++ (void)safeGuardUnrecognizedSelector;
 
 @end

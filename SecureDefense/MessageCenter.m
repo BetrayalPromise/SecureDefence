@@ -11,10 +11,23 @@
 
 @implementation MessageCenter
 
++ (instancetype)shared {
+    static dispatch_once_t onceToken;
+    static MessageCenter * instance = nil;
+    dispatch_once(&onceToken, ^{
+        if (!instance) {
+            instance = [[self alloc] init];
+        }
+    });
+    return instance;
+}
+
 static inline void instanceRealizationFunction(id obj, SEL _cmd) {
+
 }
 
 static inline void classRealizationFunction(id obj, SEL _cmd) {
+
 }
 
 + (instancetype)instanceSource:(Class)source selector:(SEL)selector {

@@ -6,7 +6,7 @@
 //  Copyright © 2018 BetrayalPromise. All rights reserved.
 //
 
-#import "NSNotificationCenter+SafeGuardRemove.h"
+#import "NSNotificationCenter+Safe.h"
 #import <objc/runtime.h>
 
 @interface AssociatedRecord : NSObject

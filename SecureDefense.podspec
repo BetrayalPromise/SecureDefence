@@ -40,33 +40,30 @@ deal with unsafe operate
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'MessageTrash'
 
+  s.subspec 'MessageCenter' do |ss|
+      ss.source_files = 'SecureDefense/MessageCenter.{h,m}'
+      ss.public_header_files = 'SecureDefense/MessageCenter.h'
+  end
+
   s.subspec 'Container' do |ss|
     ss.source_files = 'SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.{h,m}'
     ss.public_header_files = 'SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.h'
   end
 
-  s.subspec 'KeyValue' do |ss|
-    ss.source_files = 'SecureDefense/NSObject+SafeKeyValue.{h,m}'
-    ss.public_header_files = 'SecureDefense/NSObject+SafeKeyValue.h'
-  end
-  s.subspec 'MessageCenter' do |ss|
-    ss.source_files = 'SecureDefense/MessageCenter.{h,m}'
-    ss.public_header_files = 'SecureDefense/MessageCenter.h'
+  s.subspec 'Object' do |ss|
+    ss.source_files = 'SecureDefense/NSObject+Safe.{h,m}'
+    ss.public_header_files = 'SecureDefense/NSObject+Safe.h'
   end
 
-  s.subspec 'Selector' do |ss|
-    ss.source_files = 'SecureDefense/NSObject+UnknowMessage.{h,m}'
-    ss.public_header_files = 'SecureDefense/NSObject+UnknowMessage.h'
-  end
-  
+
   s.subspec 'UserDefault' do |ss|
       ss.source_files = 'SecureDefense/NSUserDefaults+Safe.{h,m}'
       ss.public_header_files = 'SecureDefense/NSUserDefaults+Safe.h'
   end
 
-  s.subspec 'NoticationCenter' do |ss|
-      ss.source_files = 'SecureDefense/NSNotificationCenter+SafeGuardRemove.{h,m}'
-      ss.public_header_files = 'SecureDefense/NSNotificationCenter+SafeGuardRemove.h'
+  s.subspec 'Notication' do |ss|
+      ss.source_files = 'SecureDefense/NSNotificationCenter+Safe.{h,m}'
+      ss.public_header_files = 'SecureDefense/NSNotificationCenter+Safe.h'
   end
 
 end

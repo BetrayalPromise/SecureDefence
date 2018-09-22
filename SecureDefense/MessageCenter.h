@@ -13,11 +13,11 @@
 
 @interface MessageCenter : NSObject
 
++ (instancetype)shared;
+
 /// 汇报实例发生未知选择子问题
 + (instancetype)instanceSource:(Class)source selector:(SEL)selector;
 /// 汇报类发生未知选择子问题
 + (instancetype)classSource:(Class)source selector:(SEL)selector;
-
-
 
 @end

@@ -21,24 +21,19 @@
   "source_files": "SecureDefense/SecureDefense.h",
   "subspecs": [
     {
-      "name": "Container",
-      "source_files": "SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.{h,m}",
-      "public_header_files": "SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.h"
-    },
-    {
-      "name": "KeyValue",
-      "source_files": "SecureDefense/NSObject+SafeKeyValue.{h,m}",
-      "public_header_files": "SecureDefense/NSObject+SafeKeyValue.h"
-    },
-    {
       "name": "MessageCenter",
       "source_files": "SecureDefense/MessageCenter.{h,m}",
       "public_header_files": "SecureDefense/MessageCenter.h"
     },
     {
-      "name": "Selector",
-      "source_files": "SecureDefense/NSObject+UnknowMessage.{h,m}",
-      "public_header_files": "SecureDefense/NSObject+UnknowMessage.h"
+      "name": "Container",
+      "source_files": "SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.{h,m}",
+      "public_header_files": "SecureDefense/NS{Array,Dictionary,HashTable,MapTable,MutableArray,MutableDictionary,MutableSet,PointerArray,Set}+Safe.h"
+    },
+    {
+      "name": "Object",
+      "source_files": "SecureDefense/NSObject+Safe.{h,m}",
+      "public_header_files": "SecureDefense/NSObject+Safe.h"
     },
     {
       "name": "UserDefault",
@@ -46,9 +41,9 @@
       "public_header_files": "SecureDefense/NSUserDefaults+Safe.h"
     },
     {
-      "name": "NoticationCenter",
-      "source_files": "SecureDefense/NSNotificationCenter+SafeGuardRemove.{h,m}",
-      "public_header_files": "SecureDefense/NSNotificationCenter+SafeGuardRemove.h"
+      "name": "Notication",
+      "source_files": "SecureDefense/NSNotificationCenter+Safe.{h,m}",
+      "public_header_files": "SecureDefense/NSNotificationCenter+Safe.h"
     }
   ]
 }

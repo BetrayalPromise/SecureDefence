@@ -6,8 +6,9 @@
 //  Copyright © 2018 BetrayalPromise. All rights reserved.
 //
 
-#import "NSObject+SafeKeyValue.h"
+#import "NSObject+Safe.h"
 #import <objc/message.h>
+#import "MessageCenter.h"
 
 @implementation NSObject (SafeKeyValue)
 
@@ -15,7 +16,6 @@
     if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
         return self;
     }
-
     NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
     Class kClass = objc_getClass([className UTF8String]);
     if (!kClass) {
@@ -71,17 +71,16 @@ void *safeValueForKey(id self, SEL _cmd, id key) {
     return objc_msgSendToSuper(&superClass, _cmd, key);
 }
 
-+ (void)safeGuardKeyValue {
++ (void)safeGuardUnrecognizedSelector {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 
-    Class cls = [self class];
-
     if (YES) {
-        Method origMethod = class_getInstanceMethod(cls, @selector(setValue:forKey:));
-        SEL origsel = @selector(setValue:forKey:);
-        Method swizMethod = class_getInstanceMethod(cls, @selector(safe_valueForKey:));
-        SEL swizsel = @selector(safe_valueForKey:);
+        Class cls = [self class];
+        Method origMethod = class_getInstanceMethod(cls, @selector(forwardingTargetForSelector:));
+        SEL origsel = @selector(forwardingTargetForSelector:);
+        Method swizMethod = class_getInstanceMethod(cls, @selector(instance_forwardingTargetForSelector:));
+        SEL swizsel = @selector(instance_forwardingTargetForSelector:);
         BOOL addMehtod = class_addMethod(cls, origsel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
         if (addMehtod) {
             class_replaceMethod(cls, swizsel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
@@ -89,35 +88,46 @@ void *safeValueForKey(id self, SEL _cmd, id key) {
             method_exchangeImplementations(origMethod, swizMethod);
         }
     }
-
     if (YES) {
-        Method origMethod = class_getInstanceMethod(cls, @selector(setValue:forKey:));
-        SEL origsel = @selector(setValue:forKey:);
-        Method swizMethod = class_getInstanceMethod(cls, @selector(safe_valueForKey:));
-        SEL swizsel = @selector(safe_valueForKey:);
-        BOOL addMehtod = class_addMethod(cls, origsel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
+        Class metaCls = objc_getMetaClass(NSStringFromClass(self).UTF8String);
+        Method origMethod = class_getClassMethod(metaCls, @selector(forwardingTargetForSelector:));
+        SEL origsel = @selector(forwardingTargetForSelector:);
+        Method swizMethod = class_getClassMethod(metaCls, @selector(class_forwardingTargetForSelector:));
+        SEL swizsel = @selector(class_forwardingTargetForSelector:);
+        BOOL addMehtod = class_addMethod(metaCls, origsel, method_getImplementation(swizMethod), method_getTypeEncoding(swizMethod));
         if (addMehtod) {
-            class_replaceMethod(cls, swizsel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+            class_replaceMethod(metaCls, swizsel, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
         } else {
             method_exchangeImplementations(origMethod, swizMethod);
         }
     }
 
     Method source = class_getClassMethod(self, _cmd);
-    method_setImplementation(source, (IMP) instanceEmptyMethod);
+    IMP imp = method_setImplementation(source, (IMP) classEmptyMethod);
+    if (imp == NULL) {
+        NSLog(@"!!!!!!!!!!");
+    }
     dispatch_semaphore_signal(semaphore);
 }
 
-- (void)safe_setValue:(id)value forKey:(NSString *)key {
-
-}
-
-- (id)safe_valueForKey:(NSString *)key {
-    return nil;
-}
-
-static inline void instanceEmptyMethod(id self, SEL selector) {
+static inline void classEmptyMethod(id self, SEL selector) {
     printf("+[%s %s]\n", NSStringFromClass(self).UTF8String, NSStringFromSelector(selector).UTF8String);
+}
+
+- (id)instance_forwardingTargetForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [self methodSignatureForSelector:aSelector];
+    if ([self respondsToSelector:aSelector] || signature) {
+        return [self instance_forwardingTargetForSelector:aSelector];
+    }
+    return [MessageCenter instanceSource:[self class] selector:aSelector];
+}
+
++ (id)class_forwardingTargetForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [self methodSignatureForSelector:aSelector];
+    if ([self respondsToSelector:aSelector] || signature) {
+        return [self class_forwardingTargetForSelector:aSelector];
+    }
+    return [MessageCenter classSource:[self class] selector:aSelector];
 }
 
 @end

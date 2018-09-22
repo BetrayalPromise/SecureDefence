@@ -17,10 +17,8 @@
 #import "NSSet+Safe.h"
 
 #import "MessageCenter.h"
-#import "NSObject+SafeKeyValue.h"
-
-#import "NSObject+UnknowMessage.h"
+#import "NSObject+Safe.h"
 
 #import "NSUserDefaults+Safe.h"
 
-#import "NSNoticationCenter+SafeGuardRemove.h"
+#import "NSNotificationCenter+Safe.h"

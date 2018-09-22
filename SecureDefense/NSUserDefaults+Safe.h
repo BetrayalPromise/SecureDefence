@@ -10,7 +10,7 @@
 
 @interface NSUserDefaults (Safe)
 
-+ (void)safeGuideUserDefaults;
+@property (nonatomic, weak, readonly) NSUserDefaults * safe;
 
 @end
 

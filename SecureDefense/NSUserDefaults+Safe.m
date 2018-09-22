@@ -8,37 +8,36 @@
 
 #import "NSUserDefaults+Safe.h"
 #import <objc/runtime.h>
-
-@interface SafeUserDefaults: NSUserDefaults
-
-@end
-
-@implementation SafeUserDefaults
-
-- (id)objectForKey:(NSString *)defaultName {
-    if (defaultName) {
-        return [super objectForKey:defaultName];
-    }
-    return nil;
-}
-
-@end
+#import <objc/message.h>
 
 @implementation NSUserDefaults (Safe)
 
-+ (void)safeGuideUserDefaults {
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+- (NSUserDefaults *)safe {
+    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
+        return self;
+    }
+    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
+    Class kClass = objc_getClass([className UTF8String]);
+    if (!kClass) {
+        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+    }
+    object_setClass(self, kClass);
 
-    object_setClass([NSUserDefaults standardUserDefaults], [SafeUserDefaults class]);
+    class_addMethod(kClass, @selector(objectForKey:), (IMP) safeObjectForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectForKey:))));
 
-    Method source = class_getClassMethod(self, _cmd);
-    method_setImplementation(source, (IMP) classEmptyMethod);
-    dispatch_semaphore_signal(semaphore);
+    objc_registerClassPair(kClass);
+
+    return self;
 }
 
-static inline void classEmptyMethod(id self, SEL selector) {
-    printf("+[%s %s]\n", NSStringFromClass(self).UTF8String, NSStringFromSelector(selector).UTF8String);
+static inline id safeObjectForKey(id self, SEL _cmd, NSString * defaultName) {
+    struct objc_super superClass = {.receiver = self, .super_class = class_getSuperclass(object_getClass(self))};
+    id (*objc_msgSendToSuper)(const void *, SEL, NSString *) = (void *) objc_msgSendSuper;
+    if (!defaultName) {
+        NSLog(@"\"%@\"-value:(%@) can not be nil", NSStringFromSelector(_cmd), defaultName);
+        return nil;
+    }
+    return objc_msgSendToSuper(&superClass, _cmd, defaultName);
 }
 
 @end

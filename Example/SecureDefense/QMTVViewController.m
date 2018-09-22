@@ -20,109 +20,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    /*
+        入参异常防御
+     */
 
-    //    [array objectAtIndex:0];
-    //    [array arrayByAddingObject:nil];
-    //    [array subarrayWithRange:NSMakeRange(0, 1)];
-    //    [array objectsAtIndexes:[NSIndexSet indexSetWithIndex:10]];
-    //    [array objectAtIndexedSubscript:1000];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
+    NSArray * array = [NSArray new];
+    [array safe];
+    id result = array[1000];
+    NSLog(@"%@", result);
+
+    [self safe];
+    [self setValue:nil forKey:nil];
+    [self valueForKey:nil];
+    [self setValue:nil forKey:@"dfadfadfa"];
+    [self setValue:@"dfadfad" forKey:nil];
+
+    [[NSUserDefaults standardUserDefaults] safe];
+    [[NSUserDefaults standardUserDefaults] objectForKey:nil];
+
+#pragma clang diagnostic pop
+
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
 
     /*
-         [array arrayByAddingObjectsFromArray:nil];
-         [array componentsJoinedByString:nil];
-         [array containsObject:nil];
-         [array descriptionWithLocale:nil];
-         [array descriptionWithLocale:nil indent:1000];
-         [array firstObjectCommonWithArray:nil];
-         [array indexOfObject:nil];
-         [array isEqualToArray:nil];
-         [array indexOfObjectIdenticalTo:nil];
-    */
-
-    //    NSMutableArray * mutableArray = [NSMutableArray new].safe;
-    //    [mutableArray addObject:@"AA"];
-    //    [mutableArray removeObjectAtIndex:5];
-    //    [mutableArray addObjectsFromArray:nil];
-    //    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
-    //    [mutableArray removeObject:nil];
-    //    [mutableArray removeObjectIdenticalTo:nil inRange:NSMakeRange(0, 1)];
-    //    [mutableArray removeObjectsInArray:nil];
-    //    [mutableArray setObject:nil atIndexedSubscript:0];
-
-    //    NSSet * set = [NSSet set].safe;
-    //    [set anyObject];
-    //    [set containsObject:nil];
-    //    [set descriptionWithLocale:nil];
-    //    [set intersectsSet:nil];
-    //    [set isEqualToSet:nil];
-    //    [set isSubsetOfSet:nil];
-    //    [set setByAddingObject:nil];
-    //    id a= [set setByAddingObjectsFromSet:nil];
-    //    id b = [set setByAddingObjectsFromArray:nil];
-
-    //    NSMutableSet * mutableSet = [NSMutableSet set].safe;
-    //    [set addObject:nil];
-    //    [mutableSet addObjectsFromArray:nil];
-    //    [mutableSet intersectSet:nil];
-    //    [mutableSet minusSet:nil];
-
-
-    //    NSPointerArray * pointerArray = [NSPointerArray weakObjectsPointerArray].safe;
-    //    [pointerArray pointerAtIndex:1000];
-    //    [pointerArray removePointerAtIndex:10000];
-
-
-    //    NSHashTable * hashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsWeakMemory)];
-    //    [hashTable addObject:nil];
-    //    NSObject *obj = [NSObject new];
-    //    __weak NSObject *obj1 =obj;
-    //    [hashTable addObject:obj1];
-    //    [hashTable removeObject:[UIViewController new]];
-
-    //    NSMapTable * mapTable = [NSMapTable weakToWeakObjectsMapTable];
-    //    id a = [mapTable objectForKey:nil];
-    //    [mapTable removeObjectForKey:nil];
-    //    [mapTable setObject:nil forKey:nil];
-
-
-    NSArray *array0 = [NSArray new].safe;
-    NSArray *array1 = [[NSArray alloc] init];
-    NSArray *array2 = [NSArray array];
-    NSArray *array3 = [[NSArray alloc] initWithObjects:nil count:0];
-
-
-
-    //    NSArray * test3 = [NSArray arrayWithObject:@"1"];
-    //
-    //    NSArray * test4 = [NSArray arrayWithObject:@1];
-
-    NSArray *a = [NSArray findSubClass];
-
-    // __NSSingleObjectArrayI __NSArray0 __NSArrayI
-
-//    NSArray *arr1 = [[NSArray alloc] initWithObjects:@0, nil].safe;
-//
-//    NSArray *arr2 = [[NSArray alloc] initWithObjects:@0, nil].safe;
-//
-//    NSArray *arr3 = [[NSArray alloc] initWithObjects:@0, nil];
-//
-//    NSArray *arr4 = [[NSArray alloc] initWithObjects:@0, @1, nil].safe;
-//    NSArray *arr5 = [[NSArray alloc] initWithObjects:@0, @1, nil];
-
+        转发防御
+     */
 
     [NSObject safeGuardUnrecognizedSelector];
-    [NSObject safeGuardUnrecognizedSelector];
-    [NSObject safeGuardUnrecognizedSelector];
-    [NSObject safeGuardUnrecognizedSelector];
-    [NSObject safeGuardUnrecognizedSelector];
 
+    [NSObject performSelector:@selector(AAAA)];
+    [self performSelector:@selector(AAAA)];
+    [NSObject performSelector:@selector(AAAA)];
+    [self performSelector:@selector(AAAA)];
 
-    [self performSelector:@selector(ABCD)];
-    [UIButton performSelector:@selector(ABCD)];
-    [self performSelector:@selector(ABCD)];
-    [UIButton performSelector:@selector(ABCD)];
-    
-    [self.safe setValue:nil forKey:nil];
+#pragma clang diagnostic pop
+
 }
 
 - (void)didReceiveMemoryWarning {

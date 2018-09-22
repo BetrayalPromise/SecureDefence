@@ -20,10 +20,9 @@
 #import "NSMutableSet+Safe.h"
 #import "NSPointerArray+Safe.h"
 #import "NSSet+Safe.h"
-#import "NSObject+SafeKeyValue.h"
 #import "MessageCenter.h"
-#import "NSNotificationCenter+SafeGuardRemove.h"
-#import "NSObject+UnknowMessage.h"
+#import "NSNotificationCenter+Safe.h"
+#import "NSObject+Safe.h"
 #import "NSUserDefaults+Safe.h"
 
 FOUNDATION_EXPORT double SecureDefenseVersionNumber;
