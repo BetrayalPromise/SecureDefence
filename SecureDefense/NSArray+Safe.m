@@ -13,46 +13,44 @@
 
 @implementation NSArray (Safe)
 
-- (NSArray<id> *)safe {
-    if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageCenter new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-
-    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
-        return self;
-    }
-
-    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-    Class kClass = objc_getClass([className UTF8String]);
-    if (!kClass) {
-        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-        objc_registerClassPair(kClass);
-    }
-    object_setClass(self, kClass);
-
-    class_addMethod(kClass, @selector(objectAtIndex:), (IMP) safeObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectAtIndex:))));
-    class_addMethod(kClass, @selector(arrayByAddingObject:), (IMP) safeArrayByAddingObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(arrayByAddingObject:))));
-    class_addMethod(kClass, @selector(indexOfObject:inRange:), (IMP) safeIndexOfObjectInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObject:inRange:))));
-    class_addMethod(kClass, @selector(indexOfObjectIdenticalTo:inRange:), (IMP) safeIndexOfObjectIdenticalToInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObjectIdenticalTo:inRange:))));
-    class_addMethod(kClass, @selector(objectsAtIndexes:), (IMP) safeObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectsAtIndexes:))));
-    class_addMethod(kClass, @selector(objectAtIndexedSubscript:), (IMP) safeObjectAtIndexedSubscript, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectAtIndexedSubscript:))));
-    class_addMethod(kClass, @selector(subarrayWithRange:), (IMP) safeSubarrayWithRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(subarrayWithRange:))));
-    class_addMethod(kClass, @selector(enumerateObjectsAtIndexes:options:usingBlock:), (IMP) safeEnumerateObjectsAtIndexesOptionsUsingBlock,
-                    method_getTypeEncoding(class_getInstanceMethod([self class], @selector(enumerateObjectsAtIndexes:options:usingBlock:))));
-    class_addMethod(kClass, @selector(indexOfObjectAtIndexes:options:passingTest:), (IMP) safeIndexOfObjectAtIndexesOptionspassingTest,
-                    method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObjectAtIndexes:options:passingTest:))));
-    class_addMethod(kClass, @selector(indexesOfObjectsAtIndexes:options:passingTest:), (IMP) safeIndexesOfObjectsAtIndexesOptionsPassingTest,
-                    method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexesOfObjectsAtIndexes:options:passingTest:))));
-    class_addMethod(kClass, @selector(indexOfObject:inSortedRange:options:usingComparator:), (IMP) safeIndexOfObjectInSortedRangeOptionsUsingComparator,
-                    method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObject:inSortedRange:options:usingComparator:))));
-    return self;
+- (void)setIsSafeContainer:(BOOL)isSafeContainer {
+    objc_setAssociatedObject(self, @selector(isSafeContainer), @(isSafeContainer), OBJC_ASSOCIATION_RETAIN);
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageCenter new];
+- (BOOL)isSafeContainer {
+    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
 }
 
-- (void)associatedObjectLifeCycle {
+- (void)safeContainer {
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    if (!self.isSafeContainer) {
+        NSString *className = [NSString stringWithFormat:@"SafeArray__%@", [self class]];
+        Class kClass = objc_getClass([className UTF8String]);
+        if (!kClass) {
+            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+            objc_registerClassPair(kClass);
+        }
+        object_setClass(self, kClass);
+        
+        class_addMethod(kClass, @selector(objectAtIndex:), (IMP) safeObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectAtIndex:))));
+        class_addMethod(kClass, @selector(arrayByAddingObject:), (IMP) safeArrayByAddingObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(arrayByAddingObject:))));
+        class_addMethod(kClass, @selector(indexOfObject:inRange:), (IMP) safeIndexOfObjectInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObject:inRange:))));
+        class_addMethod(kClass, @selector(indexOfObjectIdenticalTo:inRange:), (IMP) safeIndexOfObjectIdenticalToInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObjectIdenticalTo:inRange:))));
+        class_addMethod(kClass, @selector(objectsAtIndexes:), (IMP) safeObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectsAtIndexes:))));
+        class_addMethod(kClass, @selector(objectAtIndexedSubscript:), (IMP) safeObjectAtIndexedSubscript, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectAtIndexedSubscript:))));
+        class_addMethod(kClass, @selector(subarrayWithRange:), (IMP) safeSubarrayWithRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(subarrayWithRange:))));
+        class_addMethod(kClass, @selector(enumerateObjectsAtIndexes:options:usingBlock:), (IMP) safeEnumerateObjectsAtIndexesOptionsUsingBlock,
+                        method_getTypeEncoding(class_getInstanceMethod([self class], @selector(enumerateObjectsAtIndexes:options:usingBlock:))));
+        class_addMethod(kClass, @selector(indexOfObjectAtIndexes:options:passingTest:), (IMP) safeIndexOfObjectAtIndexesOptionspassingTest,
+                        method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObjectAtIndexes:options:passingTest:))));
+        class_addMethod(kClass, @selector(indexesOfObjectsAtIndexes:options:passingTest:), (IMP) safeIndexesOfObjectsAtIndexesOptionsPassingTest,
+                        method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexesOfObjectsAtIndexes:options:passingTest:))));
+        class_addMethod(kClass, @selector(indexOfObject:inSortedRange:options:usingComparator:), (IMP) safeIndexOfObjectInSortedRangeOptionsUsingComparator,
+                        method_getTypeEncoding(class_getInstanceMethod([self class], @selector(indexOfObject:inSortedRange:options:usingComparator:))));
+        self.isSafeContainer = YES;
+    }
+    dispatch_semaphore_signal(semaphore);
 }
 
 static void *safeObjectAtIndex(id self, SEL _cmd, unsigned long index) {

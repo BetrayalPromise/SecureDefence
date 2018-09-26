@@ -10,6 +10,8 @@
 
 @interface NSMutableSet <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSMutableSet<T> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

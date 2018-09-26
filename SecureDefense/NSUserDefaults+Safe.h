@@ -10,7 +10,9 @@
 
 @interface NSUserDefaults (Safe)
 
-@property (nonatomic, weak, readonly) NSUserDefaults * safe;
+@property (nonatomic, assign, readonly) BOOL isSafeUserDefaults;
+
+- (void)safeUserDefaults;
 
 @end
 

@@ -11,6 +11,8 @@
 /// NSHashTable可以添加nil
 @interface NSHashTable <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSHashTable<T> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

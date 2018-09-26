@@ -13,6 +13,8 @@
  */
 @interface NSArray <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSArray<T> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

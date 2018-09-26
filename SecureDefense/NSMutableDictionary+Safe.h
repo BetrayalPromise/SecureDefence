@@ -11,6 +11,8 @@
 
 @interface NSMutableDictionary <K, V>(Safe)
 
-@property (nonatomic, weak, readonly) NSMutableDictionary<K, V> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

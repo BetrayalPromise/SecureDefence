@@ -10,6 +10,8 @@
 
 @interface NSMutableArray <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSMutableArray<T> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

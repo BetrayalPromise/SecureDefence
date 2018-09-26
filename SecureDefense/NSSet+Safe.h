@@ -10,6 +10,8 @@
 
 @interface NSSet <T>(Safe)
 
-@property (nonatomic, weak, readonly) NSSet<T> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

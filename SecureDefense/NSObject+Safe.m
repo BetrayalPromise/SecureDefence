@@ -10,26 +10,34 @@
 #import <objc/message.h>
 #import "MessageCenter.h"
 
-@implementation NSObject (SafeKeyValue)
+@implementation NSObject (Safe)
 
-- (id)safe {
-    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
-        return self;
+- (void)setIsSafeKeyValue:(BOOL)isSafeKeyValue {
+    objc_setAssociatedObject(self, @selector(isSafeKeyValue), @(isSafeKeyValue), OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)isSafeKeyValue {
+    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
+}
+
+- (void)safeKeyValue {
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    if (!self.isSafeKeyValue) {
+        NSString *className = [NSString stringWithFormat:@"SafeKeyValue__%@", [self class]];
+        Class kClass = objc_getClass([className UTF8String]);
+        if (!kClass) {
+            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+        }
+        object_setClass(self, kClass);
+        
+        class_addMethod(kClass, @selector(setValue:forKey:), (IMP) safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
+        class_addMethod(kClass, @selector(valueForKey:), (IMP) safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
+        
+        objc_registerClassPair(kClass);
+        self.isSafeKeyValue = YES;
     }
-    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-    Class kClass = objc_getClass([className UTF8String]);
-    if (!kClass) {
-        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-    }
-    object_setClass(self, kClass);
-
-    class_addMethod(kClass, @selector(setValue:forKey:), (IMP) safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
-
-    class_addMethod(kClass, @selector(valueForKey:), (IMP) safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
-
-    objc_registerClassPair(kClass);
-
-    return self;
+    dispatch_semaphore_signal(semaphore);
 }
 
 - (nullable id)valueForUndefinedKey:(NSString *)key {
@@ -71,6 +79,7 @@ void *safeValueForKey(id self, SEL _cmd, id key) {
     return objc_msgSendToSuper(&superClass, _cmd, key);
 }
 
+#pragma mark - UnrecognizedSelector
 + (void)safeGuardUnrecognizedSelector {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);

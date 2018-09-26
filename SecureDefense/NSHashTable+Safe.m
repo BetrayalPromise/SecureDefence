@@ -13,37 +13,28 @@
 
 @implementation NSHashTable (Safe)
 
-- (NSHashTable<id> *)safe {
-    if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageCenter new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-
-    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
-        return self;
-    }
-
-    NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-    Class kClass = objc_getClass([className UTF8String]);
-    if (!kClass) {
-        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-    }
-    object_setClass(self, kClass);
-
-
-    objc_registerClassPair(kClass);
-
-    return self;
+- (void)setIsSafeContainer:(BOOL)isSafeContainer {
+    objc_setAssociatedObject(self, @selector(isSafeContainer), @(isSafeContainer), OBJC_ASSOCIATION_RETAIN);
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageCenter new];
+- (BOOL)isSafeContainer {
+    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
 }
 
-- (void)associatedObjectLifeCycle {
+- (void)safeContainer {
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    if (!self.isSafeContainer) {
+        NSString *className = [NSString stringWithFormat:@"SafeHashTable__%@", [self class]];
+        Class kClass = objc_getClass([className UTF8String]);
+        if (!kClass) {
+            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+        }
+        object_setClass(self, kClass);
+        objc_registerClassPair(kClass);
+        self.isSafeContainer = YES;
+    }
+    dispatch_semaphore_signal(semaphore);
 }
-
-// static void safeAddObject(id self, SEL _cmd, id object) {
-//
-//}
 
 @end

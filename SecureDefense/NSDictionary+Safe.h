@@ -10,6 +10,8 @@
 
 @interface NSDictionary <K, V>(Safe)
 
-@property (nonatomic, weak, readonly) NSDictionary<K, V> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

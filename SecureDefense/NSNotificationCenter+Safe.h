@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSNotificationCenter (SafeGuardRemove)
 
-/// 可以不用 iOS9以后系统会自动移除
-@property (nonatomic, weak, readonly) NSNotificationCenter * safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+/// ios9之后会自动移除可以不使用
+- (void)safeContainer;
 
 @end
 

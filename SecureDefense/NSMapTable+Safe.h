@@ -10,6 +10,8 @@
 
 @interface NSMapTable <K, V>(Safe)
 
-@property (nonatomic, weak, readonly) NSMapTable<K, V> *safe;
+@property (nonatomic, assign, readonly) BOOL isSafeContainer;
+
+- (void)safeContainer;
 
 @end

@@ -13,47 +13,46 @@
 
 @implementation NSMutableArray (Safe)
 
-- (NSMutableArray<id> *)safe {
-    if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-        objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [MessageCenter new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    if ([NSStringFromClass([self class]) hasPrefix:@"Safe"]) {
-        return self;
-    }
-
-    NSString *className = [NSString stringWithFormat:@"Safe%@", self.class];
-    Class kClass = objc_getClass([className UTF8String]);
-    if (!kClass) {
-        kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-    }
-    object_setClass(self, kClass);
-
-    class_addMethod(kClass, @selector(insertObject:atIndex:), (IMP) safeInsertObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(insertObject:atIndex:))));
-    class_addMethod(kClass, @selector(removeObjectAtIndex:), (IMP) safeRemoveObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectAtIndex:))));
-    class_addMethod(kClass, @selector(replaceObjectAtIndex:withObject:), (IMP) safeReplaceObjectAtIndexWithObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectAtIndex:withObject:))));
-    class_addMethod(kClass, @selector(exchangeObjectAtIndex:withObjectAtIndex:), (IMP) safeExchangeObjectAtIndexWithObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(exchangeObjectAtIndex:withObjectAtIndex:))));
-    class_addMethod(kClass, @selector(removeObject:inRange:), (IMP) safeRemoveObjectInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(exchangeObjectAtIndex:withObjectAtIndex:))));
-    class_addMethod(kClass, @selector(removeObjectIdenticalTo:inRange:), (IMP) safeRemoveObjectIdenticalToInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectIdenticalTo:inRange:))));
-    class_addMethod(kClass, @selector(removeObjectsInRange:), (IMP) safeRemoveObjectsInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectsInRange:))));
-    class_addMethod(kClass, @selector(replaceObjectsInRange:withObjectsFromArray:range:), (IMP) safeReplaceObjectsInRangeWithObjectsFromArrayRange,
-                    method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsInRange:withObjectsFromArray:range:))));
-    class_addMethod(kClass, @selector(replaceObjectsInRange:withObjectsFromArray:), (IMP) safeReplaceObjectsInRangeWithObjectsFromArray,
-                    method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsInRange:withObjectsFromArray:))));
-    class_addMethod(kClass, @selector(insertObjects:atIndexes:), (IMP) safeInsertObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(insertObjects:atIndexes:))));
-    class_addMethod(kClass, @selector(removeObjectsAtIndexes:), (IMP) safeRemoveObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectsAtIndexes:))));
-    class_addMethod(kClass, @selector(replaceObjectsAtIndexes:withObjects:), (IMP) safeReplaceObjectsAtIndexesWithObjects, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsAtIndexes:withObjects:))));
-    class_addMethod(kClass, @selector(setObject:atIndexedSubscript:), (IMP) safeSetObjectAtIndexedSubscript, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setObject:atIndexedSubscript:))));
-
-    objc_registerClassPair(kClass);
-
-    return self;
+- (void)setIsSafeContainer:(BOOL)isSafeContainer {
+    objc_setAssociatedObject(self, @selector(isSafeContainer), @(isSafeContainer), OBJC_ASSOCIATION_RETAIN);
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [MessageCenter new];
+- (BOOL)isSafeContainer {
+    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
 }
 
-- (void)associatedObjectLifeCycle {
+- (void)safeContainer {
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    if (!self.isSafeContainer) {
+        NSString *className = [NSString stringWithFormat:@"SafeMutableArray__%@", self.class];
+        Class kClass = objc_getClass([className UTF8String]);
+        if (!kClass) {
+            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+        }
+        object_setClass(self, kClass);
+        
+        class_addMethod(kClass, @selector(insertObject:atIndex:), (IMP) safeInsertObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(insertObject:atIndex:))));
+        class_addMethod(kClass, @selector(removeObjectAtIndex:), (IMP) safeRemoveObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectAtIndex:))));
+        class_addMethod(kClass, @selector(replaceObjectAtIndex:withObject:), (IMP) safeReplaceObjectAtIndexWithObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectAtIndex:withObject:))));
+        class_addMethod(kClass, @selector(exchangeObjectAtIndex:withObjectAtIndex:), (IMP) safeExchangeObjectAtIndexWithObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(exchangeObjectAtIndex:withObjectAtIndex:))));
+        class_addMethod(kClass, @selector(removeObject:inRange:), (IMP) safeRemoveObjectInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(exchangeObjectAtIndex:withObjectAtIndex:))));
+        class_addMethod(kClass, @selector(removeObjectIdenticalTo:inRange:), (IMP) safeRemoveObjectIdenticalToInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectIdenticalTo:inRange:))));
+        class_addMethod(kClass, @selector(removeObjectsInRange:), (IMP) safeRemoveObjectsInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectsInRange:))));
+        class_addMethod(kClass, @selector(replaceObjectsInRange:withObjectsFromArray:range:), (IMP) safeReplaceObjectsInRangeWithObjectsFromArrayRange,
+                        method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsInRange:withObjectsFromArray:range:))));
+        class_addMethod(kClass, @selector(replaceObjectsInRange:withObjectsFromArray:), (IMP) safeReplaceObjectsInRangeWithObjectsFromArray,
+                        method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsInRange:withObjectsFromArray:))));
+        class_addMethod(kClass, @selector(insertObjects:atIndexes:), (IMP) safeInsertObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(insertObjects:atIndexes:))));
+        class_addMethod(kClass, @selector(removeObjectsAtIndexes:), (IMP) safeRemoveObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectsAtIndexes:))));
+        class_addMethod(kClass, @selector(replaceObjectsAtIndexes:withObjects:), (IMP) safeReplaceObjectsAtIndexesWithObjects, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsAtIndexes:withObjects:))));
+        class_addMethod(kClass, @selector(setObject:atIndexedSubscript:), (IMP) safeSetObjectAtIndexedSubscript, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setObject:atIndexedSubscript:))));
+        
+        objc_registerClassPair(kClass);
+        
+        self.isSafeContainer = YES;
+    }
+    dispatch_semaphore_signal(semaphore);
 }
 
 static void safeInsertObjectAtIndex(id self, SEL _cmd, id object, unsigned long index) {
