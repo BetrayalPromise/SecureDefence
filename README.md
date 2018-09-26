@@ -17,17 +17,17 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 #pragma clang diagnostic ignored "-Wnonnull"
 
 NSArray * array = [NSArray new];
-[array safe];
+[array safeContainer];
 id result = array[1000];
 NSLog(@"%@", result);
 
-[self safe];
+[self safeKeyValue];
 [self setValue:nil forKey:nil];
 [self valueForKey:nil];
 [self setValue:nil forKey:@"dfadfadfa"];
 [self setValue:@"dfadfad" forKey:nil];
 
-[[NSUserDefaults standardUserDefaults] safe];
+[[NSUserDefaults standardUserDefaults] safeUserDefaults];
 [[NSUserDefaults standardUserDefaults] objectForKey:nil];
 
 #pragma clang diagnostic pop
